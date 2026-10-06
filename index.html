@@ -1,70 +1,366 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="theme-color" content="#eef8ff"><title>Routine</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#f7fbff">
+<title>Routine</title>
 <style>
-:root{--b:#238cff;--c:#29c7ef;--ink:#17324a;--muted:#607486;--card:rgba(255,255,255,.9);--line:#cfe5f5;--shadow:0 10px 30px rgba(35,110,155,.14)}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;overflow-x:hidden;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--ink)}body{background:linear-gradient(rgba(250,254,255,.56),rgba(238,249,255,.72)),url('arrière-plan.png') center/cover fixed no-repeat}button,input,select,textarea{font:inherit}button{cursor:pointer}.shell{width:min(760px,100%);margin:auto;padding:12px 11px 35px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:7px 3px 12px}.brand{font-size:25px;font-weight:900}.sub,.muted{color:var(--muted);font-size:14px}.icon,.back,.btn{border-radius:15px;padding:11px 14px;font-weight:850}.icon,.back{background:rgba(255,255,255,.92);border:1px solid var(--line);color:var(--ink)}.btn{border:0;background:linear-gradient(135deg,var(--b),#62c8ff);color:#fff;box-shadow:0 7px 18px #238cff2d}.btn.light{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none}h1{font-size:30px;margin:0 0 3px}h2{font-size:23px;margin:0 0 8px}h3{font-size:17px;margin:0 0 4px}p{font-size:16px;line-height:1.45}.card{background:var(--card);border:1px solid #fff;border-radius:23px;padding:17px;margin:11px 0;box-shadow:var(--shadow);backdrop-filter:blur(10px)}.home{display:flex;flex-direction:column;gap:12px}.homeCard{width:100%;min-height:112px;display:flex;align-items:center;text-align:left;gap:15px;padding:16px;border:1px solid #fff;border-radius:24px;background:rgba(255,255,255,.93);box-shadow:var(--shadow);color:var(--ink)}.homeCard:active{transform:scale(.985)}.homeIcon{width:57px;height:57px;flex:none;border-radius:18px;display:grid;place-items:center;font-size:30px;background:linear-gradient(135deg,#e6f4ff,#e8fcff);border:1px solid #cceaff}.homeCard strong{display:block;font-size:20px}.homeCard small{display:block;color:var(--muted);font-size:14px;margin-top:2px}.notice{background:#fff9df;border:1px solid #efd68a;border-radius:16px;padding:13px;margin:10px 0}.row{display:flex;gap:9px;flex-wrap:wrap}.row>*{flex:1;min-width:120px}.field{margin:8px 0}.field label{display:block;font-size:14px;font-weight:800;margin-bottom:5px}input,select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:13px;background:#fff;color:var(--ink);outline:none}textarea{min-height:130px}.tabs{display:flex;flex-direction:column;gap:8px}.tab{padding:13px;text-align:left;border:1px solid var(--line);border-radius:16px;background:#fff;font-weight:850;color:var(--ink)}.tab.active{border-color:#69baff;background:#eaf7ff}.sectionHead{display:flex;justify-content:space-between;align-items:center;gap:10px}.exercise,.sportItem,.list{background:rgba(255,255,255,.86);border:1px solid var(--line);border-radius:18px;padding:12px;margin:9px 0}.exTop{display:flex;gap:11px;align-items:center}.stick{width:100px;height:73px;flex:none;display:grid;place-items:center;background:#eef9ff;border:1px solid #c8eaff;border-radius:14px}.stick svg{width:94px;height:64px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.metrics .field{margin:8px 0 0}.check{display:grid;grid-template-columns:1fr auto auto;gap:6px;align-items:center;background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:15px;padding:9px 11px;margin:7px 0}.mini{padding:7px 8px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:800}.yes.on{background:#dff9e9;color:#167747}.no.on{background:#ffe7e7;color:#b52f2f}.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{background:rgba(255,255,255,.84);border:1px solid var(--line);border-radius:17px;padding:13px}.stat b{display:block;font-size:25px}.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:10px}.dow{text-align:center;font-size:12px;font-weight:900;color:var(--muted);padding:4px}.day{min-height:44px;border:1px solid var(--line);border-radius:11px;background:#fff;font-weight:800;position:relative}.day.empty{visibility:hidden}.day.today{outline:2px solid #66b8ff}.day.sel{background:#e5f5ff;border-color:#5db1ff}.dot{position:absolute;width:6px;height:6px;border-radius:50%;background:#23b66d;bottom:5px;left:50%;transform:translateX(-50%)}.actions{display:flex;gap:5px;flex-wrap:wrap}.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:18px}
-@media(max-width:520px){.shell{padding:10px 9px 28px}h1{font-size:28px}.homeCard{min-height:106px}.homeIcon{width:53px;height:53px}.metrics{grid-template-columns:1fr 1fr}.exTop{align-items:flex-start}.stick{width:91px}}
-</style></head>
-<body><main class="shell"><header class="top"><div><div class="brand">Routine ✦</div><div class="sub">Sport · organisation · études</div></div><button class="icon" onclick="exportData()">⇩</button></header><div id="app"></div><div class="footer">Les données restent dans le navigateur de cet appareil.</div></main>
+:root{
+  --blue:#168cff;--cyan:#21c8ee;--violet:#7b61ff;--green:#25b77a;--orange:#ff9f43;
+  --pink:#ff6f9c;--ink:#17324a;--muted:#607486;--line:#d8e8f4;
+  --card:rgba(255,255,255,.95);--shadow:0 10px 28px rgba(30,95,135,.13)
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;overflow-x:hidden;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--ink)}
+body{
+ background:
+ linear-gradient(rgba(255,255,255,.82),rgba(247,251,255,.91)),
+ url('arrière-plans.png') center/cover fixed no-repeat;
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.shell{width:min(760px,100%);margin:auto;padding:12px 10px 35px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:5px 3px 12px}
+.brand{font-size:26px;font-weight:950}
+.sub,.muted{color:var(--muted);font-size:14px}
+.icon,.back,.btn{border-radius:15px;padding:11px 14px;font-weight:850}
+.icon,.back{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.btn{border:0;background:linear-gradient(135deg,var(--blue),#62c8ff);color:#fff;box-shadow:0 7px 18px #238cff2d}
+.btn.light{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+h1{font-size:31px;line-height:1.1;margin:0 0 5px}
+h2{font-size:23px;margin:0 0 8px}
+h3{font-size:18px;margin:0 0 4px}
+p{font-size:16px;line-height:1.45}
+.card{background:var(--card);border:1px solid #fff;border-radius:23px;padding:17px;margin:11px 0;box-shadow:var(--shadow);backdrop-filter:blur(9px)}
+.home{display:flex;flex-direction:column;gap:12px}
+.homeCard{
+ width:100%;min-height:116px;display:flex;align-items:center;text-align:left;gap:15px;padding:16px;
+ border:1px solid #fff;border-radius:24px;background:#fff;box-shadow:var(--shadow);color:var(--ink)
+}
+.homeCard:active{transform:scale(.985)}
+.homeIcon{width:59px;height:59px;flex:none;border-radius:19px;display:grid;place-items:center;font-size:31px;border:1px solid}
+.homeCard strong{display:block;font-size:21px}
+.homeCard small{display:block;color:var(--muted);font-size:14px;margin-top:3px}
+.c-blue .homeIcon{background:#e8f4ff;border-color:#b9ddff}.c-green .homeIcon{background:#e9fbf2;border-color:#bfead3}
+.c-orange .homeIcon{background:#fff3e5;border-color:#ffd5a5}.c-violet .homeIcon{background:#f0edff;border-color:#d5ceff}
+.c-pink .homeIcon{background:#fff0f5;border-color:#ffd0df}.c-cyan .homeIcon{background:#e8fbff;border-color:#bcecf5}
+.c-yellow .homeIcon{background:#fff9df;border-color:#f3df8e}.c-purple .homeIcon{background:#f2efff;border-color:#d9d0ff}
+.c-red .homeIcon{background:#fff0f0;border-color:#ffd0d0}
+.notice{background:#fff9df;border:1px solid #efd68a;border-radius:16px;padding:13px;margin:10px 0}
+.notice.red{background:#fff1f1;border-color:#ffc7c7}
+.row{display:flex;gap:9px;flex-wrap:wrap}.row>*{flex:1;min-width:120px}
+.field{margin:9px 0}.field label{display:block;font-size:14px;font-weight:850;margin-bottom:5px}
+input,select,textarea{width:100%;padding:12px 12px;border:1px solid var(--line);border-radius:13px;background:#fff;color:var(--ink);outline:none}
+textarea{min-height:130px}
+.datebar{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px;margin:10px 0;box-shadow:var(--shadow)}
+.datebar .datecenter{text-align:center;flex:1}.datecenter b{display:block;font-size:17px}.datecenter span{font-size:12px;color:var(--muted)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px}
+.tab{flex:1;min-width:0;padding:12px;text-align:center;border:1px solid var(--line);border-radius:16px;background:#fff;font-weight:850;color:var(--ink)}
+.tab.active{border-color:#69baff;background:#eaf7ff;color:#0d72d2}
+.sectionHead{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.exercise,.sportItem,.list{background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px;margin:9px 0}
+.exTop{display:flex;gap:11px;align-items:center}
+.stick{width:100px;height:73px;flex:none;display:grid;place-items:center;background:#eef9ff;border:1px solid #c8eaff;border-radius:14px}
+.stick svg{width:94px;height:64px}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.metrics .field{margin:8px 0 0}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.quick button{text-align:left;padding:12px;border-radius:15px;border:1px solid #bfe0f7;background:#f5fbff;font-weight:850}
+.check{display:grid;grid-template-columns:1fr auto auto;gap:6px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:15px;padding:10px 11px;margin:7px 0}
+.mini{padding:8px 9px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:800}
+.yes.on{background:#dff9e9;color:#167747}.no.on{background:#ffe7e7;color:#b52f2f}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{background:#fff;border:1px solid var(--line);border-radius:17px;padding:13px}.stat b{display:block;font-size:25px}
+.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:10px}
+.dow{text-align:center;font-size:12px;font-weight:900;color:var(--muted);padding:4px}
+.day{min-height:44px;border:1px solid var(--line);border-radius:11px;background:#fff;font-weight:800;position:relative}
+.day.empty{visibility:hidden}.day.today{outline:2px solid #66b8ff}.day.sel{background:#e5f5ff;border-color:#5db1ff}
+.dot{position:absolute;width:6px;height:6px;border-radius:50%;background:#23b66d;bottom:5px;left:50%;transform:translateX(-50%)}
+.actions{display:flex;gap:5px;flex-wrap:wrap}.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:18px}
+@media(max-width:520px){
+ .shell{padding:10px 9px 28px}h1{font-size:29px}.homeCard{min-height:112px}
+ .homeIcon{width:55px;height:55px}.metrics{grid-template-columns:1fr 1fr}.exTop{align-items:flex-start}.stick{width:91px}
+ .tabs{display:grid;grid-template-columns:1fr 1fr 1fr}.tab{font-size:13px}
+}
+</style>
+</head>
+<body>
+<main class="shell">
+<header class="top">
+ <div><div class="brand">Routine ✦</div><div class="sub">Sport · organisation · études</div></div>
+ <button class="icon" onclick="exportData()">⇩</button>
+</header>
+<div id="app"></div>
+<div class="footer">Les données restent dans le navigateur de cet appareil.</div>
+</main>
+
 <script>
-const DEFAULT=["Boire un verre d'eau au réveil","Faire son lit","Aérer la chambre","Se laver les dents le matin","Préparer ses affaires","Vérifier son sac","Regarder le planning du jour","Ranger le bureau","Faire une pause écran","Marcher quelques minutes","Faire une vraie pause déjeuner","Ranger après avoir mangé","Lire quelques pages","Faire une activité créative","Préparer les affaires du lendemain","Se laver les dents le soir","Préparer une tenue pour demain","Noter l'heure du coucher","Noter l'heure du réveil","Noter les pas"];
-const EXTRA=["Prendre une douche","Mettre les vêtements au panier","Ranger les chaussures","Nettoyer le bureau","Préparer la gourde","Remplir la gourde","Vérifier les devoirs","Vérifier les contrôles","Préparer le matériel de sport","Préparer le matériel scolaire","Faire une courte pause","Ranger le téléphone","Faire une promenade","Prendre l'air","Ouvrir les volets","Fermer les volets","Ranger les livres","Classer les documents","Préparer la trousse","Vérifier les clés","Préparer le goûter","Ranger la cuisine","Mettre la table","Débarrasser la table","Faire la vaisselle","Sortir les déchets","Ranger le sac de sport","Vérifier les chaussures","Préparer une playlist","Écrire les priorités","Faire le point sur la journée","Noter une idée","Noter une tâche importante","Planifier une pause","Planifier une séance","Planifier une révision","Réviser 15 minutes","Réviser 30 minutes","Relire une leçon","Faire une fiche","Faire des exercices","Corriger ses exercices","Préparer une question pour le cours","Lire le cours du lendemain","Trier les photos","Ranger les fichiers","Vérifier les téléchargements","Répondre aux messages importants","Préparer le réveil","Vérifier l'heure du réveil","Éloigner le téléphone du lit","Baisser la luminosité","Mode silencieux","Préparer un moment calme","Étirements doux","Respirer quelques minutes","Activité sans écran","Jouer d'un instrument","Dessiner","Écrire","Faire une photo","Faire du bricolage","Faire un puzzle","Ranger une étagère","Ranger un tiroir","Nettoyer l'écran","Nettoyer le clavier","Organiser le bureau","Préparer une liste de courses","Vérifier les rendez-vous","Vérifier le calendrier","Ajouter un événement","Supprimer une tâche terminée","Choisir la tenue du lendemain","Préparer le petit-déjeuner","Préparer le repas suivant","Boire de l'eau pendant la journée","Noter un entraînement","Noter une sortie","Noter une révision","Faire le bilan de la journée","Écrire le récapitulatif de la semaine"];
-const EX=[
-["Pompes","Pectoraux","Corps aligné, descente contrôlée.","push"],["Squat","Jambes","Descendre avec des appuis stables.","squat"],["Fentes","Jambes","Un pas, descente verticale, retour.","lunge"],["Gainage","Tronc","Corps aligné pendant la tenue.","plank"],["Tractions","Dos","Tirer le corps vers la barre.","pull"],["Développé couché","Pectoraux","Contrôler la charge et les appuis.","bench"],["Élévations latérales","Épaules","Lever les bras de façon contrôlée.","lat"],["Soulevé de terre","Chaîne postérieure","Dos neutre et charge proche du corps.","dead"],["Hip thrust","Fessiers","Pousser le bassin vers le haut.","hip"],["Crunch","Abdominaux","Enrouler doucement le haut du corps.","crunch"]];
-const SPORTS=[["Football","⚽","Buts, passes, tirs cadrés, score, durée"],["Tennis","🎾","Services, coups droits, revers, score"],["Basketball","🏀","Paniers, passes, rebonds, score"],["Natation","🏊","Distance, longueurs, durée"],["Cyclisme","🚴","Distance, durée, vitesse"],["Badminton","🏸","Points, matchs, services, durée"],["Handball","🤾","Buts, passes, tirs, durée"],["Volleyball","🏐","Services, points, réceptions"],["Rugby","🏉","Essais, passes, durée"],["Danse","💃","Durée, style, séance"],["Escalade","🧗","Voies, réussites, durée"],["Skate","🛹","Distance, durée, éléments"],["Athlétisme","🏃","Épreuve, distance, temps"],["Ping-pong","🏓","Matchs, points, services"],["Golf","⛳","Trous, score, durée"],["Randonnée","🥾","Distance, durée, dénivelé"]];
+const DEFAULT=["Boire un verre d'eau au réveil", "Faire son lit", "Aérer la chambre", "Se laver les dents le matin", "Préparer ses affaires", "Vérifier son sac", "Regarder le planning du jour", "Ranger le bureau", "Faire une pause écran", "Marcher quelques minutes", "Faire une vraie pause déjeuner", "Ranger après avoir mangé", "Lire quelques pages", "Faire une activité créative", "Préparer les affaires du lendemain", "Se laver les dents le soir", "Préparer une tenue pour demain", "Noter l'heure du coucher", "Noter l'heure du réveil", "Noter les pas"];
+const EXTRA=["Prendre une douche", "Mettre les vêtements au panier", "Ranger les chaussures", "Nettoyer le bureau", "Préparer la gourde", "Remplir la gourde", "Vérifier les devoirs", "Vérifier les contrôles", "Préparer le matériel de sport", "Préparer le matériel scolaire", "Faire une courte pause", "Ranger le téléphone", "Faire une promenade", "Prendre l'air", "Ouvrir les volets", "Fermer les volets", "Ranger les livres", "Classer les documents", "Préparer la trousse", "Vérifier les clés", "Préparer le goûter", "Ranger la cuisine", "Mettre la table", "Débarrasser la table", "Faire la vaisselle", "Sortir les déchets", "Ranger le sac de sport", "Vérifier les chaussures", "Préparer une playlist", "Écrire les priorités", "Faire le point sur la journée", "Noter une idée", "Noter une tâche importante", "Planifier une pause", "Planifier une séance", "Planifier une révision", "Réviser 15 minutes", "Réviser 30 minutes", "Relire une leçon", "Faire une fiche", "Faire des exercices", "Corriger ses exercices", "Préparer une question pour le cours", "Lire le cours du lendemain", "Trier les photos", "Ranger les fichiers", "Vérifier les téléchargements", "Répondre aux messages importants", "Préparer le réveil", "Vérifier l'heure du réveil", "Éloigner le téléphone du lit", "Baisser la luminosité", "Mode silencieux", "Préparer un moment calme", "Étirements doux", "Respirer quelques minutes", "Activité sans écran", "Jouer d'un instrument", "Dessiner", "Écrire", "Faire une photo", "Faire du bricolage", "Faire un puzzle", "Ranger une étagère", "Ranger un tiroir", "Nettoyer l'écran", "Nettoyer le clavier", "Organiser le bureau", "Préparer une liste de courses", "Vérifier les rendez-vous", "Vérifier le calendrier", "Ajouter un événement", "Supprimer une tâche terminée", "Choisir la tenue du lendemain", "Préparer le petit-déjeuner", "Préparer le repas suivant", "Boire de l'eau pendant la journée", "Noter un entraînement", "Noter une sortie", "Noter une révision", "Faire le bilan de la journée", "Écrire le récapitulatif de la semaine"];
+const EX=[["Pompes","Pectoraux","Position de départ : mains au sol, corps aligné.","push"],["Squats","Jambes","Position de départ : debout, pieds stables, dos neutre.","squat"],["Abdos","Abdominaux","Position de départ : allongé, genoux fléchis.","crunch"],["Curl haltères","Biceps","Position de départ : debout, bras le long du corps, haltères en mains.","curl"],["Développé couché avec haltères","Pectoraux","Position de départ : allongé, haltères au-dessus de la poitrine.","bench"],["Fentes","Jambes","Pas en avant, buste droit.","lunge"],["Fentes arrière","Jambes","Debout, un pied recule.","lunge"],["Fentes latérales","Jambes","Debout, un pas sur le côté.","lunge"],["Fentes marchées","Jambes","Debout, prêt à avancer.","lunge"],["Fentes croisées","Jambes","Debout, un pied croise derrière.","lunge"],["Fentes sautées","Jambes","Debout, départ stable.","lunge"],["Squat sumo","Jambes","Pieds écartés, pointes légèrement ouvertes.","squat"],["Squat sur une jambe","Jambes","Debout sur une jambe, équilibre stable.","squat"],["Squat isométrique","Jambes","Dos droit contre un mur ou position stable.","squat"],["Pont fessier","Fessiers","Allongé, pieds au sol et genoux fléchis.","hip"],["Hip thrust au poids du corps","Fessiers","Épaules appuyées, pieds au sol.","hip"],["Mollets debout","Mollets","Debout, pieds parallèles.","calf"],["Mollets sur une marche","Mollets","Avant des pieds sur le bord d’une marche.","calf"],["Pompes diamant","Triceps","Mains rapprochées sous la poitrine.","push"],["Pompes larges","Pectoraux","Mains plus écartées que les épaules.","push"],["Pompes inclinées","Pectoraux","Mains sur un support stable.","push"],["Pompes déclinées","Pectoraux","Pieds sur un support stable.","push"],["Pompes sur les genoux","Pectoraux","Genoux au sol, mains devant les épaules.","push"],["Pompes pseudo-planche","Pectoraux","Mains au sol, épaules légèrement avancées.","push"],["Pompes scapulaires","Dos","Position haute de pompe, bras tendus.","push"],["Dips entre deux supports","Triceps","Mains sur des supports stables.","bench"],["Dips sur banc","Triceps","Mains derrière sur un support stable.","bench"],["Tractions pronation","Dos","Suspendu à la barre, mains en pronation.","pull"],["Tractions supination","Dos","Suspendu à la barre, paumes vers soi.","pull"],["Tractions prise neutre","Dos","Suspendu, paumes face à face.","pull"],["Tractions australiennes","Dos","Corps incliné, mains sur une barre basse.","row"],["Gainage planche","Tronc","Avant-bras au sol, corps aligné.","plank"],["Gainage latéral","Tronc","Sur le côté, corps aligné.","plank"],["Gainage inversé","Tronc","Dos vers le sol, mains ou avant-bras en appui.","plank"],["Dead bug","Abdominaux","Allongé sur le dos, bras et jambes en position de départ.","crunch"],["Bird dog","Tronc","À quatre appuis, dos neutre.","plank"],["Crunch","Abdominaux","Allongé sur le dos, genoux fléchis.","crunch"],["Crunch inversé","Abdominaux","Allongé sur le dos, genoux fléchis vers le haut.","crunch"],["Relevés de jambes","Abdominaux","Allongé sur le dos, jambes tendues.","crunch"],["Relevés de genoux","Abdominaux","Suspendu ou allongé, genoux fléchis.","crunch"],["Russian twist","Abdominaux","Assis, buste droit, mains devant.","crunch"],["Mountain climbers","Cardio","Position haute de pompe.","push"],["Jumping jacks","Cardio","Debout, bras et jambes prêts à s’écarter.","squat"],["Burpees","Cardio","Debout, prêt à descendre vers le sol.","push"],["High knees","Cardio","Debout, buste droit.","squat"],["Talons-fesses","Cardio","Debout, posture stable.","squat"],["Skater jumps","Cardio","Debout, appui sur une jambe.","lunge"],["Squat jump","Jambes","Debout, départ en squat.","squat"],["Box step-up","Jambes","Debout devant une marche stable.","lunge"],["Développé incliné avec haltères","Pectoraux","Allongé sur banc incliné, haltères au-dessus de la poitrine.","bench"],["Développé décliné avec haltères","Pectoraux","Allongé sur banc décliné, haltères en mains.","bench"],["Écartés avec haltères","Pectoraux","Allongé, haltères au-dessus de la poitrine.","bench"],["Écartés inclinés avec haltères","Pectoraux","Allongé sur banc incliné, haltères en mains.","bench"],["Pull-over avec haltère","Pectoraux","Allongé, un haltère tenu au-dessus de la poitrine.","bench"],["Développé militaire avec haltères","Épaules","Debout ou assis, haltères près des épaules.","press"],["Développé Arnold","Épaules","Assis, haltères devant les épaules.","press"],["Élévations latérales","Épaules","Debout, haltères le long du corps.","fly"],["Élévations frontales","Épaules","Debout, haltères devant les cuisses.","press"],["Oiseau avec haltères","Épaules","Buste incliné, haltères sous les épaules.","fly"],["Rowing un bras avec haltère","Dos","Un appui stable, haltère bras tendu vers le sol.","row"],["Rowing avec deux haltères","Dos","Buste incliné, haltères sous les épaules.","row"],["Rowing renégat","Dos","Position de départ en appui sur deux haltères.","row"],["Shrugs avec haltères","Trapèzes","Debout, haltères le long du corps.","curl"],["Curl marteau","Biceps","Debout, paumes face à face.","curl"],["Curl alterné","Biceps","Debout, un haltère dans chaque main.","curl"],["Curl concentré","Biceps","Assis, coude appuyé contre la cuisse.","curl"],["Curl incliné","Biceps","Assis sur banc incliné, bras vers le sol.","curl"],["Curl Zottman","Biceps","Debout, haltères en mains.","curl"],["Curl prise neutre","Biceps","Debout, paumes face à face.","curl"],["Extension triceps au-dessus de la tête","Triceps","Debout ou assis, haltère au-dessus de la tête.","press"],["Extension triceps un bras","Triceps","Debout ou assis, un haltère en main.","press"],["Kickback triceps","Triceps","Buste incliné, coude près du corps.","row"],["Développé serré avec haltères","Triceps","Allongé, haltères proches au-dessus de la poitrine.","bench"],["Goblet squat","Jambes","Debout, un haltère devant le torse.","squat"],["Squat avec deux haltères","Jambes","Debout, un haltère dans chaque main.","squat"],["Fentes avec haltères","Jambes","Debout, haltères le long du corps.","lunge"],["Fentes bulgares avec haltères","Jambes","Un pied arrière sur un support stable.","lunge"],["Fentes arrière avec haltères","Jambes","Debout, haltères le long du corps.","lunge"],["Step-up avec haltères","Jambes","Debout devant une marche stable, haltères en mains.","lunge"],["Soulevé de terre roumain avec haltères","Ischio-jambiers","Debout, haltères devant les cuisses.","dead"],["Soulevé de terre jambes tendues avec haltères","Ischio-jambiers","Debout, haltères devant les cuisses.","dead"],["Soulevé de terre sumo avec haltère","Jambes","Pieds écartés, haltère entre les mains.","dead"],["Hip thrust avec haltère","Fessiers","Épaules appuyées, haltère posé sur le bassin.","hip"],["Pont fessier avec haltère","Fessiers","Allongé, haltère posé sur le bassin.","hip"],["Mollets avec haltères","Mollets","Debout, haltères dans les mains.","calf"],["Farmer walk avec haltères","Gainage","Debout, un haltère dans chaque main.","row"],["Suitcase carry avec haltère","Gainage","Debout, un haltère d’un seul côté.","row"],["Russian twist avec haltère","Abdominaux","Assis, un haltère tenu devant le torse.","crunch"],["Crunch avec haltère","Abdominaux","Allongé, haltère tenu contre la poitrine.","crunch"],["Sit-up avec haltère","Abdominaux","Allongé, haltère tenu devant la poitrine.","crunch"],["Woodchopper avec haltère","Abdominaux","Debout, haltère tenu à deux mains.","press"],["Dead bug avec haltère","Abdominaux","Allongé, haltère tenu au-dessus de la poitrine.","crunch"],["Planche avec tirage haltère","Tronc","Position haute de pompe avec un haltère sous le corps.","row"],["Développé couché à la barre","Pectoraux","Allongé sur banc, barre au-dessus de la poitrine.","bench"],["Développé incliné à la barre","Pectoraux","Allongé sur banc incliné, barre au-dessus de la poitrine.","bench"],["Développé militaire à la barre","Épaules","Debout, barre au niveau des épaules.","press"],["Rowing barre","Dos","Buste incliné, barre devant les jambes.","row"],["Curl barre","Biceps","Debout, barre devant les cuisses.","curl"],["Curl barre EZ","Biceps","Debout, barre devant les cuisses.","curl"],["Extension triceps barre","Triceps","Allongé ou assis, barre en mains.","press"],["Squat à la barre","Jambes","Debout, barre placée sur les épaules.","squat"],["Front squat","Jambes","Debout, barre à l’avant des épaules.","squat"],["Soulevé de terre à la barre","Dos et jambes","Debout, barre au sol devant les tibias.","dead"],["Soulevé de terre roumain à la barre","Ischio-jambiers","Debout, barre devant les cuisses.","dead"],["Hip thrust à la barre","Fessiers","Épaules appuyées, barre au niveau du bassin.","hip"],["Good morning à la barre","Ischio-jambiers","Debout, barre sur les épaules.","dead"],["Fentes à la barre","Jambes","Debout, barre sur les épaules.","lunge"],["Shrugs à la barre","Trapèzes","Debout, barre devant les cuisses.","curl"],["Tirage menton à la barre","Épaules","Debout, barre devant les cuisses.","press"],["Kettlebell swing","Chaîne postérieure","Debout, kettlebell devant le corps.","dead"],["Goblet squat kettlebell","Jambes","Debout, kettlebell devant le torse.","squat"],["Kettlebell clean","Épaules","Debout, kettlebell au sol devant soi.","press"],["Kettlebell press","Épaules","Debout, kettlebell près de l’épaule.","press"],["Kettlebell row","Dos","Buste incliné, kettlebell sous l’épaule.","row"],["Kettlebell deadlift","Jambes","Debout, kettlebell au sol devant soi.","dead"],["Kettlebell fentes","Jambes","Debout, kettlebell tenue en main.","lunge"],["Kettlebell farmer walk","Gainage","Debout, kettlebells dans les mains.","row"],["Kettlebell halo","Épaules","Debout, kettlebell devant le torse.","press"],["Kettlebell russian twist","Abdominaux","Assis, kettlebell devant le torse.","crunch"],["Sac à dos squat","Jambes","Debout, sac à dos tenu contre le torse.","squat"],["Sac à dos fentes","Jambes","Debout, sac à dos stable.","lunge"],["Sac à dos rowing","Dos","Buste incliné, sac tenu devant soi.","row"],["Sac à dos curl","Biceps","Debout, sac tenu par les poignées.","curl"],["Sac à dos développé","Épaules","Debout, sac au niveau des épaules.","press"],["Rowing aux anneaux","Dos","Debout incliné, mains aux anneaux.","row"],["Pompes aux anneaux","Pectoraux","Mains aux anneaux, corps aligné.","push"],["Dips aux anneaux","Triceps","Suspendu aux anneaux, bras tendus.","bench"],["Tractions aux anneaux","Dos","Suspendu aux anneaux, bras tendus.","pull"],["Curl aux anneaux","Biceps","Corps incliné, mains aux anneaux.","curl"],["Extension triceps aux anneaux","Triceps","Corps incliné, mains aux anneaux.","press"],["Gainage aux anneaux","Tronc","Pieds ou mains en suspension, corps aligné.","plank"],["Pike aux anneaux","Épaules","Position de départ en appui aux anneaux.","press"],["Superman","Dos","Allongé sur le ventre, bras devant.","plank"],["Cobra au sol","Mobilité","Allongé sur le ventre, mains près des épaules.","plank"],["Bird dog crunch","Abdominaux","À quatre appuis, bras et jambe opposés prêts à bouger.","plank"],["Hollow body hold","Abdominaux","Allongé sur le dos, bras et jambes décollés.","plank"],["V-sit","Abdominaux","Assis, jambes et buste en position de départ.","crunch"],["V-ups","Abdominaux","Allongé, bras et jambes tendus.","crunch"],["Toe touches","Abdominaux","Allongé, jambes relevées.","crunch"],["Bicycle crunch","Abdominaux","Allongé, genoux fléchis et mains près de la tête.","crunch"],["Flutter kicks","Abdominaux","Allongé, jambes tendues.","crunch"],["Scissor kicks","Abdominaux","Allongé, jambes tendues.","crunch"],["Heel taps","Abdominaux","Allongé, genoux fléchis.","crunch"],["Plank shoulder taps","Tronc","Position haute de pompe.","plank"],["Plank knee to elbow","Tronc","Position haute de pompe.","plank"],["Side plank reach","Tronc","Gainage latéral, corps aligné.","plank"],["Reverse crunch","Abdominaux","Allongé, genoux fléchis vers le haut.","crunch"],["Bear crawl","Tronc","À quatre appuis, genoux proches du sol.","plank"],["Crab walk","Tronc","Assis, mains et pieds au sol.","plank"],["Inchworm","Mobilité","Debout, mains prêtes à aller au sol.","push"],["Walkout","Tronc","Debout, mains vers le sol.","push"],["Cossack squat","Jambes","Debout, jambes écartées.","squat"],["Pistol squat assisté","Jambes","Debout, une jambe devant et support à proximité.","squat"],["Wall sit","Jambes","Dos contre un mur, position assise.","squat"],["Glute bridge march","Fessiers","Allongé, bassin relevé.","hip"],["Single-leg glute bridge","Fessiers","Allongé, un pied au sol.","hip"],["Donkey kicks","Fessiers","À quatre appuis, une jambe prête à monter.","lunge"],["Fire hydrants","Fessiers","À quatre appuis, genou plié sur le côté.","lunge"],["Reverse hyper au sol","Fessiers","Allongé sur le ventre, jambes tendues.","hip"],["Prone Y raise","Dos","Allongé sur le ventre, bras en Y.","fly"],["Prone T raise","Dos","Allongé sur le ventre, bras en T.","fly"],["Prone W raise","Dos","Allongé sur le ventre, coudes fléchis.","fly"],["Pompes archer","Pectoraux","Mains au sol, corps aligné.","push"],["Pompes explosives","Pectoraux","Position haute de pompe.","push"],["Pompes avec pause","Pectoraux","Position haute de pompe.","push"],["Pompes en T","Pectoraux","Position haute de pompe.","push"],["Squat avec pause","Jambes","Debout, pieds stables.","squat"],["Squat pulse","Jambes","Position basse de squat.","squat"],["Split squat","Jambes","Position fendue, pieds stables.","lunge"],["Split squat avec haltères","Jambes","Position fendue, haltères en mains.","lunge"],["Fente bulgare","Jambes","Pied arrière sur un support stable.","lunge"],["Step-up au poids du corps","Jambes","Debout devant une marche stable.","lunge"],["Nordic curl assisté","Ischio-jambiers","Genoux au sol, pieds stabilisés.","dead"],["Good morning au poids du corps","Ischio-jambiers","Debout, mains derrière la tête.","dead"],["Élévation mollets unilatérale","Mollets","Debout sur un pied, appui stable.","calf"],["Tibialis raise","Jambes","Dos contre un support, pointes relevées.","calf"],["Développé au sol avec haltères","Pectoraux","Allongé au sol, haltères au-dessus de la poitrine.","bench"],["Développé neutre avec haltères","Pectoraux","Allongé, paumes face à face.","bench"],["Développé alterné avec haltères","Pectoraux","Allongé, un haltère par main.","bench"],["Squeeze press haltères","Pectoraux","Allongé, haltères rapprochés au-dessus de la poitrine.","bench"],["Pullover haltère au sol","Pectoraux","Allongé, un haltère au-dessus de la poitrine.","bench"],["Élévation latérale unilatérale","Épaules","Debout, un haltère le long du corps.","fly"],["Élévation frontale unilatérale","Épaules","Debout, un haltère devant la cuisse.","press"],["Oiseau unilatéral","Épaules","Buste incliné, un haltère en main.","fly"],["Rowing poitrine sur banc avec haltères","Dos","Allongé ventre contre banc, haltères sous les épaules.","row"],["Rowing coudes ouverts avec haltères","Dos","Buste incliné, haltères sous les épaules.","row"],["Rowing renversé sous table","Dos","Corps incliné, mains sur un support très stable.","row"],["Curl marteau alterné","Biceps","Debout, paumes face à face.","curl"],["Curl marteau croisé","Biceps","Debout, un haltère vers l’épaule opposée.","curl"],["Curl araignée","Biceps","Buste appuyé sur un banc, bras vers le sol.","curl"],["Curl inversé haltères","Biceps","Debout, paumes vers le sol.","curl"],["Extension triceps couché haltères","Triceps","Allongé, haltères au-dessus des épaules.","press"],["Extension triceps prise neutre","Triceps","Allongé ou assis, haltères en mains.","press"],["Sissy squat assisté","Jambes","Debout avec un appui stable à proximité.","squat"],["Squat cycliste","Jambes","Debout, talons légèrement surélevés.","squat"],["Squat sur boîte","Jambes","Debout devant une boîte ou un banc stable.","squat"],["Fente avant avec haltères","Jambes","Debout, haltères le long du corps.","lunge"],["Fente latérale avec haltère","Jambes","Debout, un haltère tenu devant le torse.","lunge"],["Fente marchée avec haltères","Jambes","Debout, haltères en mains.","lunge"],["Soulevé de terre une jambe avec haltère","Ischio-jambiers","Debout sur un pied, haltère en main.","dead"],["Soulevé de terre valise avec haltère","Jambes","Debout, un haltère à côté du corps.","dead"],["B-stance RDL avec haltères","Ischio-jambiers","Debout, un pied légèrement en arrière.","dead"],["Hip thrust une jambe","Fessiers","Épaules appuyées, un pied au sol.","hip"],["Abduction hanche au poids du corps","Hanches","Allongé sur le côté, jambes superposées.","hip"],["Clamshell","Hanches","Allongé sur le côté, genoux fléchis.","hip"],["Crunch vélo","Abdominaux","Allongé, genoux fléchis et mains près de la tête.","crunch"],["Crunch jambes relevées","Abdominaux","Allongé, jambes relevées.","crunch"],["Plank up-down","Tronc","Position de planche sur les avant-bras.","plank"],["Plank jack","Tronc","Position haute de pompe.","plank"],["Side plank knee drive","Tronc","Gainage latéral, genou fléchi.","plank"],["Suitcase march avec haltère","Gainage","Debout, un haltère d’un côté.","row"]];
+const SPORTS=[
+["Football","⚽","Buts, passes, tirs cadrés, score, durée"],["Tennis","🎾","Services, coups droits, revers, score"],
+["Basketball","🏀","Paniers, passes, rebonds, score"],["Natation","🏊","Distance, longueurs, durée"],
+["Cyclisme","🚴","Distance, durée, vitesse"],["Badminton","🏸","Points, matchs, services, durée"],
+["Handball","🤾","Buts, passes, tirs, durée"],["Volleyball","🏐","Services, points, réceptions"],
+["Rugby","🏉","Essais, passes, durée"],["Danse","💃","Durée, style, séance"],
+["Escalade","🧗","Voies, réussites, durée"],["Skate","🛹","Distance, durée, éléments"],
+["Athlétisme","🏃","Épreuve, distance, temps"],["Ping-pong","🏓","Matchs, points, services"],
+["Golf","⛳","Trous, score, durée"],["Randonnée","🥾","Distance, durée, dénivelé"]
+];
+
 let old=JSON.parse(localStorage.getItem('routineDB')||'null')||{};
-const db={...old,checks:old.checks||{},water:old.water||0,sleepStart:old.sleepStart||'',sleepEnd:old.sleepEnd||'',steps:old.steps||0,food:Array.isArray(old.food)?old.food:[],workouts:Array.isArray(old.workouts)?old.workouts:[],activities:Array.isArray(old.activities)?old.activities:[],goals:Array.isArray(old.goals)?old.goals:[],events:Array.isArray(old.events)?old.events:[],profile:old.profile||{height:'',weight:'',age:'',note:''},customChecks:Array.isArray(old.customChecks)?old.customChecks:[],activeChecks:Array.isArray(old.activeChecks)?old.activeChecks:DEFAULT.slice(),dayLogs:old.dayLogs||{},recaps:old.recaps||{},selectedDate:old.selectedDate||new Date().toISOString().slice(0,10)};
+const todayISO=()=>new Date().toISOString().slice(0,10);
+const db={
+ ...old,
+ food:Array.isArray(old.food)?old.food:[],
+ workouts:Array.isArray(old.workouts)?old.workouts:[],
+ activities:Array.isArray(old.activities)?old.activities:[],
+ goals:Array.isArray(old.goals)?old.goals:[],
+ events:Array.isArray(old.events)?old.events:[],
+ profile:old.profile||{height:'',weight:'',age:'',note:''},
+ activeChecks:Array.isArray(old.activeChecks)&&old.activeChecks.length?old.activeChecks:DEFAULT.slice(),
+ customChecks:Array.isArray(old.customChecks)?old.customChecks:[],
+ dayLogs:old.dayLogs||{},
+ recaps:old.recaps||{},
+ oublis:Array.isArray(old.oublis)?old.oublis:[],
+ customExercises:Array.isArray(old.customExercises)?old.customExercises:[],
+ selectedDate:old.selectedDate||todayISO()
+};
+db.events=db.events.map((e,i)=>({...e,id:e.id||('old-'+i+'-'+e.date+'-'+e.name),repeat:e.repeat||'none',end:e.end||'',pauses:Array.isArray(e.pauses)?e.pauses:[]}));
 let page='home',sportTab='muscu',cursor=new Date();cursor.setDate(1);
-const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-const save=()=>localStorage.setItem('routineDB',JSON.stringify(db)); const go=p=>{page=p;render()};
+
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const save=()=>localStorage.setItem('routineDB',JSON.stringify(db));
+const go=p=>{page=p;render()};
 const back=()=>`<button class="back" onclick="go('home')">← Accueil</button>`;
-function dayData(d){return db.dayLogs[d]||{checks:{},water:0,steps:'',sleepStart:'',sleepEnd:'',validated:false}}
+const selectedDateLabel=()=>new Date(db.selectedDate+'T12:00:00').toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+function changeDate(delta){
+ const d=new Date(db.selectedDate+'T12:00:00');d.setDate(d.getDate()+delta);db.selectedDate=d.toISOString().slice(0,10);save();render();
+}
+function datebar(){return `<div class="datebar"><button class="icon" onclick="changeDate(-1)">‹</button><div class="datecenter"><b>${esc(selectedDateLabel())}</b><span>Journée sélectionnée</span></div><button class="icon" onclick="changeDate(1)">›</button></div>`}
+function dayData(d){return db.dayLogs[d]||{checks:{},water:'',steps:'',sleepStart:'',sleepEnd:'',validated:false}}
 function setDay(k,v){let d=dayData(db.selectedDate);d[k]=v;db.dayLogs[db.selectedDate]=d;save()}
 function setCheck(n,v){let d=dayData(db.selectedDate);d.checks[n]=v;db.dayLogs[db.selectedDate]=d;save();render()}
 function validate(){setDay('validated',true);render()}
 function sleepLen(a,b){if(!a||!b)return '—';let [h,m]=a.split(':').map(Number),[H,M]=b.split(':').map(Number),x=h*60+m,y=H*60+M;if(y<=x)y+=1440;let z=y-x;return Math.floor(z/60)+' h '+String(z%60).padStart(2,'0')}
 function exportData(){let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(db,null,2)],{type:'application/json'}));a.download='routine-donnees.json';a.click()}
-function svg(t){let c='fill="none" stroke="#238cff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"';let body={
-push:`<line x1="7" y1="61" x2="113" y2="61" stroke="#68c6ff" stroke-width="3"/><circle cx="76" cy="28" r="6" ${c}/><path d="M70 34 50 47 28 51M50 47 34 61M28 51 14 61M50 47 68 58" ${c}/>` ,
-squat:`<line x1="8" y1="63" x2="112" y2="63" stroke="#68c6ff" stroke-width="3"/><circle cx="61" cy="12" r="6" ${c}/><path d="M57 18 54 36 39 49 27 63M54 36 71 48 83 63M50 25 34 37M50 25 69 31" ${c}/>` ,
-lunge:`<line x1="8" y1="63" x2="112" y2="63" stroke="#68c6ff" stroke-width="3"/><circle cx="55" cy="12" r="6" ${c}/><path d="M53 18 55 35 42 48 29 63M55 35 72 47 91 63M51 24 35 34M52 23 69 35" ${c}/>` ,
-plank:`<line x1="8" y1="62" x2="112" y2="62" stroke="#68c6ff" stroke-width="3"/><circle cx="76" cy="27" r="6" ${c}/><path d="M70 33 50 45 29 54 15 62M50 45 44 62" ${c}/>` ,
-pull:`<line x1="15" y1="10" x2="105" y2="10" stroke="#68c6ff" stroke-width="4"/><circle cx="60" cy="28" r="6" ${c}/><path d="M55 34 48 49 34 62M55 34 69 48 84 62M50 38 35 13M67 38 84 13" ${c}/>` ,
-bench:`<line x1="10" y1="62" x2="110" y2="62" stroke="#68c6ff" stroke-width="3"/><path d="M30 52 86 52M39 52 33 62M78 52 84 62" ${c}/><circle cx="57" cy="35" r="6" ${c}/><path d="M53 41 42 52M61 41 72 52M44 43 26 32M70 43 88 32M20 30 94 30" ${c}/>` ,
-lat:`<line x1="10" y1="64" x2="110" y2="64" stroke="#68c6ff" stroke-width="3"/><circle cx="60" cy="12" r="6" ${c}/><path d="M60 18V43M60 28 35 17M60 28 85 17M60 43 46 64M60 43 74 64" ${c}/>` ,
-dead:`<line x1="10" y1="64" x2="110" y2="64" stroke="#68c6ff" stroke-width="3"/><circle cx="70" cy="20" r="6" ${c}/><path d="M66 26 52 40 37 54M52 40 71 48 85 64M37 54 25 64M50 40 30 45M24 45H31V62" ${c}/>` ,
-hip:`<line x1="10" y1="62" x2="110" y2="62" stroke="#68c6ff" stroke-width="3"/><circle cx="76" cy="35" r="6" ${c}/><path d="M70 40 53 49 35 56M53 49 70 62M35 56 22 62M53 49 48 62" ${c}/><line x1="48" y1="48" x2="91" y2="48" stroke="#238cff" stroke-width="4"/>`,
-crunch:`<line x1="10" y1="62" x2="110" y2="62" stroke="#68c6ff" stroke-width="3"/><circle cx="70" cy="30" r="6" ${c}/><path d="M65 35 52 45 35 52 24 62M52 45 66 53 78 62M48 45 39 34M48 45 56 32" ${c}/>`};return `<svg viewBox="0 0 120 75">${body[t]||body.push}</svg>`}
-function exCard(e){return `<div class="exercise"><div class="exTop"><div class="stick">${svg(e[3])}</div><div><h3>${esc(e[0])}</h3><div class="muted">${esc(e[1])}</div><p>${esc(e[2])}</p></div></div><div class="metrics"><div class="field"><label>Séries</label><input type="number" min="0" placeholder="0" oninput="saveW('${esc(e[0])}','sets',this.value)"></div><div class="field"><label>Répétitions</label><input type="number" min="0" placeholder="0" oninput="saveW('${esc(e[0])}','reps',this.value)"></div><div class="field"><label>Poids kg</label><input type="number" min="0" placeholder="0" oninput="saveW('${esc(e[0])}','weight',this.value)"></div></div><div class="muted" style="margin-top:5px">0 kg = poids du corps</div></div>`}
-function saveW(n,k,v){let x=db.workouts.find(w=>w.date===db.selectedDate&&w.name===n);if(!x){x={date:db.selectedDate,name:n};db.workouts.push(x)}x[k]=v;save()}
-function render(){document.getElementById('app').innerHTML=pages[page]()}
-const pages={
-home:()=>`${db.dayLogs[new Date().toISOString().slice(0,10)]?.validated?'':'<div class="notice">🔔 Pense à valider ta journée une fois tes informations du jour complétées.</div>'}<div class="card"><h1>Accueil</h1><div class="sub">Version téléphone : une seule colonne, tout se fait en défilant vers le bas.</div></div><div class="home">${[['🏋️','Sport','Musculation · sports · course & marche','sport'],['📋','Ma journée','Habitudes · oublis · sommeil · eau','day'],['🍽️','Alimentation','Journal simple de tes repas','food'],['🎯','Objectifs','Objectifs et suivi','goals'],['🗓️','Calendrier','Tous tes jours au même endroit','calendar'],['👤','Données personnelles','Informations modifiables','profile'],['📊','Bilan','Statistiques et activités','report'],['📅','Planning','Événements · révisions · pauses','plan'],['📝','Récapitulatif','Écrire et modifier ce que tu as fait','recap']].map(x=>`<button class="homeCard" onclick="go('${x[3]}')"><span class="homeIcon">${x[0]}</span><span><strong>${x[1]}</strong><small>${x[2]}</small></span></button>`).join('')}</div>`,
-sport:()=>`${back()}<div class="card"><h1>Sport</h1><p>Les trois espaces sont séparés pour garder une navigation simple.</p><div class="tabs"><button class="tab ${sportTab==='muscu'?'active':''}" onclick="sportTab='muscu';render()">🏋️ Musculation</button><button class="tab ${sportTab==='sport'?'active':''}" onclick="sportTab='sport';render()">🏅 Sport</button><button class="tab ${sportTab==='run'?'active':''}" onclick="sportTab='run';render()">🏃 Course & marche</button></div></div>${sportTab==='muscu'?muscu():sportTab==='sport'?sportsView():runView()}`,
-day:()=>{let d=dayData(db.selectedDate);return `${back()}<div class="card"><h1>Ma journée</h1><div class="sub">${new Date(db.selectedDate+'T12:00:00').toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}</div><div class="stats"><div class="stat"><b>${d.water||0}</b><span class="muted">verres d'eau</span></div><div class="stat"><b>${d.steps||0}</b><span class="muted">pas</span></div></div><div class="field"><label>Verres d'eau</label><input type="number" min="0" value="${d.water||0}" onchange="setDay('water',this.value);render()"></div><div class="row"><div class="field"><label>Coucher</label><input type="time" value="${d.sleepStart||''}" onchange="setDay('sleepStart',this.value);render()"></div><div class="field"><label>Réveil</label><input type="time" value="${d.sleepEnd||''}" onchange="setDay('sleepEnd',this.value);render()"></div></div><div class="stat"><b>${sleepLen(d.sleepStart,d.sleepEnd)}</b><span class="muted">durée de sommeil</span></div></div><div class="card"><div class="sectionHead"><h2>Mes 20 habitudes</h2><button class="btn light" onclick="manageChecks()">Gérer</button></div>${db.activeChecks.map(n=>{let v=d.checks[n];return `<div class="check"><span>🔹 ${esc(n)}</span><button class="mini yes ${v===true?'on':''}" onclick="setCheck('${esc(n)}',true)">Oui</button><button class="mini no ${v===false?'on':''}" onclick="setCheck('${esc(n)}',false)">Non</button></div>`}).join('')}<button class="btn" style="width:100%;margin-top:10px" onclick="validate()">✓ Valider ma journée</button>${d.validated?'<div class="notice">Journée validée. Tu peux encore la modifier.</div>':''}</div><div class="card"><h2>Oublis</h2><p>Un jour passé non validé reste signalé dans le calendrier. Tu peux le rouvrir et le compléter.</p></div>`},
-food:()=>`${back()}<div class="card"><h1>Alimentation</h1><p>Journal simple des repas et quantités, sans objectif restrictif.</p><div class="field"><label>Aliment / repas</label><input id="foodName" placeholder="Ex. pâtes, sandwich…"></div><div class="row"><div class="field"><label>Quantité</label><input id="foodQty" placeholder="Ex. 150 g"></div><div class="field"><label>Moment</label><select id="foodMeal"><option>Petit-déjeuner</option><option>Déjeuner</option><option>Goûter</option><option>Dîner</option><option>Autre</option></select></div></div><button class="btn" onclick="addFood()">Ajouter</button></div><div class="card"><h2>Mes entrées</h2>${db.food.filter(x=>x.date===db.selectedDate).map(x=>`<div class="list">🍽️ <b>${esc(x.name)}</b><br><span class="muted">${esc(x.qty||'')} · ${esc(x.meal||'')}</span></div>`).join('')||'<span class="muted">Aucune entrée pour ce jour.</span>'}</div>`,
-goals:()=>`${back()}<div class="card"><h1>Objectifs</h1><div class="field"><label>Objectif</label><input id="goalText" placeholder="Ex. faire 3 séances cette semaine"></div><div class="field"><label>Mesure</label><input id="goalMeasure" placeholder="Ex. nombre de séances"></div><div class="field"><label>Période</label><select id="goalPeriod"><option>Cette semaine</option><option>Ce mois</option><option>Cette année</option></select></div><button class="btn" onclick="addGoal()">Ajouter</button></div><div class="card">${db.goals.map((g,i)=>`<div class="list"><b>🎯 ${esc(g.text)}</b><br><span class="muted">${esc(g.measure)} · ${esc(g.period)}</span><div class="actions"><button class="mini" onclick="db.goals.splice(${i},1);save();render()">Supprimer</button></div></div>`).join('')||'<span class="muted">Aucun objectif.</span>'}</div>`,
-calendar:()=>`${back()}<div class="card"><div class="sectionHead"><button class="icon" onclick="cursor.setMonth(cursor.getMonth()-1);render()">‹</button><h1>${cursor.toLocaleDateString('fr-FR',{month:'long',year:'numeric'})}</h1><button class="icon" onclick="cursor.setMonth(cursor.getMonth()+1);render()">›</button></div>${cal()}<div class="notice">Jour sélectionné : <b>${new Date(db.selectedDate+'T12:00:00').toLocaleDateString('fr-FR')}</b></div><button class="btn" onclick="go('day')">Modifier cette journée</button> <button class="btn light" onclick="go('recap')">Modifier le récapitulatif</button></div>`,
-profile:()=>`${back()}<div class="card"><h1>Données personnelles</h1>${[['age','Âge'],['height','Taille'],['weight','Poids'],['note','Note']].map(x=>`<div class="field"><label>${x[1]}</label><input value="${esc(db.profile[x[0]]||'')}" onchange="db.profile['${x[0]}']=this.value;save()"></div>`).join('')}</div>`,
-report:()=>`${back()}<div class="card"><h1>Bilan</h1><div class="stats"><div class="stat"><b>${db.activities.length}</b><span class="muted">séances sport</span></div><div class="stat"><b>${db.workouts.length}</b><span class="muted">exercices notés</span></div><div class="stat"><b>${db.food.length}</b><span class="muted">repas enregistrés</span></div><div class="stat"><b>${db.goals.length}</b><span class="muted">objectifs</span></div></div></div>`,
-plan:()=>`${back()}<div class="card"><h1>Planning</h1><div class="field"><label>Nom</label><input id="eventName" placeholder="Ex. révision maths"></div><div class="row"><div class="field"><label>Date</label><input id="eventDate" type="date" value="${db.selectedDate}"></div><div class="field"><label>Heure</label><input id="eventTime" type="time"></div></div><div class="field"><label>Durée en minutes</label><input id="eventDur" type="number" min="1" max="1440" value="30"></div><button class="btn" onclick="addEvent()">Ajouter</button></div><div class="card"><h2>Événements</h2>${db.events.map((e,i)=>`<div class="list">📅 <b>${esc(e.name)}</b><br><span class="muted">${esc(e.date)} · ${esc(e.time||'')} · ${esc(e.dur||'')} min</span><button class="mini" style="float:right" onclick="db.events.splice(${i},1);save();render()">×</button></div>`).join('')||'<span class="muted">Aucun événement.</span>'}</div>`,
-recap:()=>`${back()}<div class="card"><h1>Récapitulatif</h1><div class="sub">${new Date(db.selectedDate+'T12:00:00').toLocaleDateString('fr-FR')}</div><p>Tu peux le modifier quand tu veux depuis le calendrier.</p><textarea id="recapText" placeholder="Aujourd'hui, j'ai…">${esc(db.recaps[db.selectedDate]||'')}</textarea><button class="btn" style="margin-top:10px" onclick="db.recaps[db.selectedDate]=document.getElementById('recapText').value;save();render()">Enregistrer</button></div>`};
-function muscu(){return `<div class="card"><h2>Exercices</h2><input placeholder="Rechercher un exercice…" oninput="filterEx(this.value)"><div id="exlist">${EX.map(exCard).join('')}</div></div>`}
-function filterEx(q){let a=EX.filter(e=>(e[0]+' '+e[1]).toLowerCase().includes(q.toLowerCase()));document.getElementById('exlist').innerHTML=a.map(exCard).join('')||'<span class="muted">Aucun exercice trouvé.</span>'}
-function sportsView(){return `<div class="card"><h2>Ajouter une séance</h2><div class="field"><label>Sport</label><input id="sportName" list="sports" placeholder="Football, tennis…"><datalist id="sports">${SPORTS.map(s=>`<option value="${s[0]}">`).join('')}</datalist></div><div class="field"><label>Durée</label><input id="sportDur" placeholder="1 h 15"></div><div class="field"><label>Statistiques</label><input id="sportStats" placeholder="Ex. 2 buts, score 3-1"></div><button class="btn" onclick="addActivity()">Ajouter</button></div><div class="card"><h2>Suggestions</h2>${SPORTS.map(s=>`<div class="sportItem"><h3>${s[1]} ${esc(s[0])}</h3><div class="muted">${esc(s[2])}</div></div>`).join('')}</div>`}
-function runView(){return `<div class="card"><h2>Course & marche</h2><div class="row"><div class="field"><label>Distance km</label><input id="rd" type="number" step=".01" oninput="calcP()"></div><div class="field"><label>Temps</label><input id="rt" placeholder="45:00" oninput="calcP()"></div></div><div class="stat"><b id="pace">—</b><span class="muted">allure / km</span></div><div class="field"><label>Pas</label><input id="rs" type="number"></div><button class="btn" onclick="db.activities.push({date:db.selectedDate,name:'Course & marche',distance:rd.value,time:rt.value,steps:rs.value});save();render()">Enregistrer</button></div>`}
-function calcP(){let d=+rd.value,t=rt.value.split(':').map(Number);if(!d||!t.length){pace.textContent='—';return}let min=t.length===2?t[0]+t[1]/60:t[0]*60+t[1]+t[2]/60;let p=min/d;pace.textContent=Math.floor(p)+':'+String(Math.round((p%1)*60)).padStart(2,'0')}
-function cal(){let y=cursor.getFullYear(),m=cursor.getMonth(),first=new Date(y,m,1),last=new Date(y,m+1,0),start=(first.getDay()+6)%7,s='';for(let i=0;i<start;i++)s+='<button class="day empty"></button>';for(let n=1;n<=last.getDate();n++){let d=new Date(y,m,n),iso=d.toISOString().slice(0,10),cls=iso===db.selectedDate?'sel ':''+(iso===new Date().toISOString().slice(0,10)?'today':'');let done=db.dayLogs[iso]?.validated||db.recaps[iso];s+=`<button class="day ${cls}" onclick="db.selectedDate='${iso}';save();render()">${n}${done?'<span class="dot"></span>':''}</button>`}return `<div class="calendar">${['L','M','M','J','V','S','D'].map(x=>`<div class="dow">${x}</div>`).join('')}${s}</div>`}
-function manageChecks(){document.getElementById('app').innerHTML=`${back()}<div class="card"><h1>Organiser mes habitudes</h1><p>Supprime, ajoute ou déplace. Tu peux mettre les habitudes du matin en haut et celles du soir en bas.</p>${db.activeChecks.map((n,i)=>`<div class="list"><b>${i+1}. ${esc(n)}</b><div class="actions"><button class="mini" onclick="moveCheck(${i},-1)">↑</button><button class="mini" onclick="moveCheck(${i},1)">↓</button><button class="mini" onclick="db.activeChecks.splice(${i},1);save();manageChecks()">Supprimer</button></div></div>`).join('')}<hr><h2>Ajouter parmi 100 suggestions</h2><input id="sx" placeholder="Rechercher…" oninput="showSuggestions(this.value)"><div id="suggestions"></div><hr><h2>Créer la tienne</h2><div class="row"><input id="custom" placeholder="Ma propre habitude"><button class="btn" onclick="addCheck(document.getElementById('custom').value)">Ajouter</button></div></div>`;showSuggestions('')}
-function showSuggestions(q){let a=EXTRA.filter(x=>x.toLowerCase().includes(q.toLowerCase())).slice(0,100);let e=document.getElementById('suggestions');if(e)e.innerHTML=a.map(x=>`<div class="list">＋ ${esc(x)} <button class="mini" style="float:right" onclick="addCheck('${esc(x)}')">Ajouter</button></div>`).join('')}
-function addCheck(n){n=n.trim();if(!n)return;if(!db.activeChecks.includes(n))db.activeChecks.push(n);save();manageChecks()}
+
+function svg(t){
+ let c='fill="none" stroke="#168cff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"';
+ let body={
+ push:`<line x1="7" y1="61" x2="113" y2="61" stroke="#62c9ef" stroke-width="3"/><circle cx="76" cy="28" r="6" ${c}/><path d="M70 34 50 47 28 51M50 47 34 61M28 51 14 61M50 47 68 58" ${c}/>`,
+ squat:`<line x1="8" y1="63" x2="112" y2="63" stroke="#62c9ef" stroke-width="3"/><circle cx="61" cy="12" r="6" ${c}/><path d="M57 18 54 36 39 49 27 63M54 36 71 48 83 63M50 25 34 37M50 25 69 31" ${c}/>`,
+ lunge:`<line x1="8" y1="63" x2="112" y2="63" stroke="#62c9ef" stroke-width="3"/><circle cx="55" cy="12" r="6" ${c}/><path d="M53 18 55 35 42 48 29 63M55 35 72 47 91 63M51 24 35 34M52 23 69 35" ${c}/>`,
+ plank:`<line x1="7" y1="61" x2="113" y2="61" stroke="#62c9ef" stroke-width="3"/><circle cx="86" cy="34" r="6" ${c}/><path d="M80 40 60 48 34 52 18 61M45 51 39 61M70 44 78 58" ${c}/>`,
+ pull:`<line x1="15" y1="8" x2="105" y2="8" stroke="#62c9ef" stroke-width="3"/><circle cx="60" cy="23" r="6" ${c}/><path d="M60 29 60 47M60 33 45 16M60 33 75 16M60 47 47 61M60 47 73 61" ${c}/>`,
+ bench:`<line x1="9" y1="62" x2="113" y2="62" stroke="#62c9ef" stroke-width="3"/><circle cx="56" cy="25" r="6" ${c}/><path d="M50 31 62 39 79 41M62 39 51 55M79 41 90 55M54 34 39 28M66 37 82 30" ${c}/>`,
+ press:`<line x1="23" y1="9" x2="97" y2="9" stroke="#62c9ef" stroke-width="3"/><circle cx="60" cy="28" r="6" ${c}/><path d="M60 34 60 53M60 39 42 20M60 39 78 20M60 53 48 63M60 53 72 63" ${c}/>`,
+ lat:`<line x1="8" y1="63" x2="112" y2="63" stroke="#62c9ef" stroke-width="3"/><circle cx="60" cy="15" r="6" ${c}/><path d="M60 21 60 45M60 28 37 36M60 28 83 36M60 45 49 63M60 45 71 63" ${c}/>`,
+ curl:`<line x1="8" y1="63" x2="112" y2="63" stroke="#62c9ef" stroke-width="3"/><circle cx="60" cy="15" r="6" ${c}/><path d="M60 21 60 45M60 27 40 36M60 27 80 36M60 45 49 63M60 45 71 63M39 36 29 27M81 36 91 27" ${c}/>`,
+ dead:`<line x1="8" y1="63" x2="112" y2="63" stroke="#62c9ef" stroke-width="3"/><circle cx="86" cy="20" r="6" ${c}/><path d="M80 26 65 40 42 47 22 63M42 47 36 63M65 40 74 58M57 40 49 31M67 39 79 31" ${c}/>`,
+ hip:`<line x1="8" y1="63" x2="112" y2="63" stroke="#62c9ef" stroke-width="3"/><circle cx="72" cy="31" r="6" ${c}/><path d="M66 37 53 48 31 49M53 48 39 63M53 48 74 48 91 63M45 45 31 36" ${c}/>`,
+ crunch:`<line x1="8" y1="63" x2="112" y2="63" stroke="#62c9ef" stroke-width="3"/><circle cx="67" cy="25" r="6" ${c}/><path d="M62 31 48 45 28 45M48 45 41 63M48 45 67 58M67 58 89 58" ${c}/>`,
+ row:`<line x1="8" y1="63" x2="112" y2="63" stroke="#62c9ef" stroke-width="3"/><circle cx="79" cy="20" r="6" ${c}/><path d="M74 26 58 41 36 48 20 63M36 48 31 63M58 41 67 61M58 41 44 34" ${c}/>`,
+ calf:`<line x1="8" y1="63" x2="112" y2="63" stroke="#62c9ef" stroke-width="3"/><circle cx="60" cy="13" r="6" ${c}/><path d="M60 19 60 45M60 28 43 35M60 28 77 35M60 45 51 57M60 45 69 57M48 61 54 61M66 61 72 61" ${c}/>`
+ };
+ return `<svg viewBox="0 0 120 70">${body[t]||body.squat}</svg>`;
+}
+function exCard(e,i){
+ const key=e[0].replace(/'/g,"\\'");
+ const five=i<5;
+ return `<div class="exercise"><div class="exTop"><div class="stick">${svg(e[3])}</div><div><h3>${esc(e[0])}</h3><div class="muted">${esc(e[1])}</div><p style="margin:5px 0 0;font-size:14px">${esc(e[2])}</p></div></div>
+ <div class="metrics">
+  <div class="field"><label>Séries</label><input type="number" min="1" value="${getWorkout(e[0]).sets||3}" onchange="saveWorkout('${key}','sets',this.value)"></div>
+  <div class="field"><label>Répétitions</label><input type="number" min="1" value="${getWorkout(e[0]).reps||10}" onchange="saveWorkout('${key}','reps',this.value)"></div>
+  <div class="field"><label>Poids kg</label><input type="number" min="0" step=".5" value="${getWorkout(e[0]).weight??0}" onchange="saveWorkout('${key}','weight',this.value)"></div>
+ </div><div class="muted" style="margin-top:5px">${getWorkout(e[0]).weight==0?'Poids du corps':''}</div>
+ <button class="btn light" style="margin-top:8px;width:100%" onclick="toggleWorkout('${key}')">${getWorkout(e[0]).done?'✓ Enregistré':'＋ Enregistrer cet exercice'}</button>
+ </div>`;
+}
+function getWorkout(name){return (db.workouts.find(x=>x.date===db.selectedDate&&x.name===name)||{})}
+function saveWorkout(name,k,v){
+ let x=db.workouts.find(x=>x.date===db.selectedDate&&x.name===name);
+ if(!x){x={date:db.selectedDate,name,sets:3,reps:10,weight:0,done:false};db.workouts.push(x)}
+ x[k]=k==='weight'?Number(v):Number(v);save();
+}
+function toggleWorkout(name){
+ let x=db.workouts.find(x=>x.date===db.selectedDate&&x.name===name);
+ if(!x){x={date:db.selectedDate,name,sets:3,reps:10,weight:0,done:true};db.workouts.push(x)}else{x.done=!x.done}
+ save();render();
+}
+function addActivity(){let n=document.getElementById('sportName').value.trim();if(!n)return;db.activities.push({date:db.selectedDate,name:n,duration:document.getElementById('sportDur').value,stats:document.getElementById('sportStats').value});save();render()}
+function addFood(){let n=document.getElementById('foodName').value.trim();if(!n)return;db.food.push({date:db.selectedDate,name:n,qty:document.getElementById('foodQty').value,meal:document.getElementById('foodMeal').value});save();render()}
+function addGoal(){let t=document.getElementById('goalText').value.trim();if(!t)return;db.goals.push({text:t,measure:document.getElementById('goalMeasure').value,period:document.getElementById('goalPeriod').value});save();render()}
+function addEvent(){
+ let n=document.getElementById('eventName').value.trim();if(!n)return;
+ let e={id:Date.now(),name:n,date:document.getElementById('eventDate').value,time:document.getElementById('eventTime').value,dur:document.getElementById('eventDur').value,repeat:document.getElementById('eventRepeat').value,end:document.getElementById('eventEnd').value,pauses:[]};
+ let ps=document.getElementById('pauseStart').value,pe=document.getElementById('pauseEnd').value;if(ps&&pe)e.pauses.push({start:ps,end:pe});
+ db.events.push(e);save();render()
+}
+function eventOccurs(e,iso){
+ if(!e||!e.date)return false;
+ let d=new Date(iso+'T12:00:00'), start=new Date(e.date+'T12:00:00');
+ if(d<start)return false;
+ if(e.end && iso>e.end)return false;
+ if((e.pauses||[]).some(p=>iso>=p.start&&iso<=p.end))return false;
+ let r=e.repeat||'none';
+ if(r==='none')return iso===e.date;
+ if(r==='daily')return true;
+ if(r==='weekly')return d.getDay()===start.getDay();
+ if(r==='monthly')return d.getDate()===start.getDate();
+ return false;
+}
+function eventsForDate(iso){return db.events.filter(e=>eventOccurs(e,iso))}
+function addEventPause(id){let e=db.events.find(x=>x.id===id);if(!e)return;let a=prompt('Début de la pause (AAAA-MM-JJ) :','');if(!a)return;let b=prompt('Fin de la pause (AAAA-MM-JJ) :',a);if(!b)return;(e.pauses||(e.pauses=[])).push({start:a,end:b});save();render()}
+function removeEvent(id){db.events=db.events.filter(e=>e.id!==id);save();render()}
+function addOubli(){let n=document.getElementById('oubliText').value.trim();if(!n)return;db.oublis.push({id:Date.now(),date:db.selectedDate,text:n,done:false});save();render()}
+function toggleOubli(id){let x=db.oublis.find(o=>o.id===id);if(x)x.done=!x.done;save();render()}
+function deleteOubli(id){db.oublis=db.oublis.filter(o=>o.id!==id);save();render()}
+function setCheck(n,v){let d=dayData(db.selectedDate);d.checks[n]=v;db.dayLogs[db.selectedDate]=d;save();render()}
 function moveCheck(i,d){let j=i+d;if(j<0||j>=db.activeChecks.length)return;[db.activeChecks[i],db.activeChecks[j]]=[db.activeChecks[j],db.activeChecks[i]];save();manageChecks()}
-function addFood(){let n=foodName.value.trim();if(!n)return;db.food.push({date:db.selectedDate,name:n,qty:foodQty.value,meal:foodMeal.value});save();render()}
-function addGoal(){let t=goalText.value.trim();if(!t)return;db.goals.push({text:t,measure:goalMeasure.value,period:goalPeriod.value});save();render()}
-function addActivity(){let n=sportName.value.trim();if(!n)return;db.activities.push({date:db.selectedDate,name:n,duration:sportDur.value,stats:sportStats.value});save();render()}
-function addEvent(){let n=eventName.value.trim();if(!n)return;db.events.push({name:n,date:eventDate.value,time:eventTime.value,dur:eventDur.value});save();render()}
+function addCheck(n){n=(n||'').trim();if(!n)return;if(!db.activeChecks.includes(n))db.activeChecks.push(n);save();manageChecks()}
+function showSuggestions(q){let a=EXTRA.filter(x=>x.toLowerCase().includes(q.toLowerCase())).slice(0,100);let e=document.getElementById('suggestions');if(e)e.innerHTML=a.map(x=>`<div class="list">＋ ${esc(x)} <button class="mini" style="float:right" onclick="addCheck('${esc(x)}')">Ajouter</button></div>`).join('')}
+function manageChecks(){
+ document.getElementById('app').innerHTML=`${back()}${datebar()}<div class="card"><h1>Organiser ma journée</h1><p>Les 20 habitudes principales sont déjà là. Tu peux les supprimer, les déplacer, ajouter des suggestions ou créer les tiennes.</p>
+ ${db.activeChecks.map((n,i)=>`<div class="list"><b>${i+1}. ${esc(n)}</b><div class="actions"><button class="mini" onclick="moveCheck(${i},-1)">↑</button><button class="mini" onclick="moveCheck(${i},1)">↓</button><button class="mini" onclick="db.activeChecks.splice(${i},1);save();manageChecks()">Supprimer</button></div></div>`).join('')}
+ <hr><h2>Ajouter une suggestion</h2><input id="sx" placeholder="Rechercher parmi les suggestions…" oninput="showSuggestions(this.value)"><div id="suggestions"></div>
+ <hr><h2>Créer la tienne</h2><div class="row"><input id="custom" placeholder="Ma propre habitude"><button class="btn" onclick="addCheck(document.getElementById('custom').value)">Ajouter</button></div></div>`;
+ showSuggestions('');
+}
+function addCustomExercise(){
+ const n=document.getElementById('newExName').value.trim(); if(!n)return;
+ const group=document.getElementById('newExGroup').value.trim()||'Autre';
+ const desc=document.getElementById('newExDesc').value.trim()||'Position de départ à adapter au mouvement.';
+ const kind=document.getElementById('newExKind').value;
+ if(!db.customExercises.some(e=>e[0].toLowerCase()===n.toLowerCase())){
+   db.customExercises.push([n,group,desc,kind]); save();
+ }
+ render();
+}
+function deleteCustomExercise(i){db.customExercises.splice(i,1);save();render()}
+function allExercises(){return EX.concat(db.customExercises||[])}
+function filterEx(q){
+ const a=allExercises().filter(e=>(e[0]+' '+e[1]).toLowerCase().includes(q.toLowerCase()));
+ document.getElementById('exlist').innerHTML=a.length?a.map(exCard).join(''):'<span class="muted">Aucun exercice trouvé.</span>';
+}
+function cal(){
+ let y=cursor.getFullYear(),m=cursor.getMonth(),first=new Date(y,m,1),last=new Date(y,m+1,0),start=(first.getDay()+6)%7,s='';
+ for(let i=0;i<start;i++)s+='<button class="day empty"></button>';
+ for(let n=1;n<=last.getDate();n++){
+  let d=new Date(y,m,n),iso=d.toISOString().slice(0,10),cls=(iso===db.selectedDate?'sel ':'')+(iso===todayISO()?'today':'');
+  let done=db.dayLogs[iso]?.validated||db.recaps[iso]||db.oublis.some(o=>o.date===iso);
+  s+=`<button class="day ${cls}" onclick="db.selectedDate='${iso}';save();render()">${n}${done?'<span class="dot"></span>':''}</button>`;
+ }
+ return `<div class="calendar">${['L','M','M','J','V','S','D'].map(x=>`<div class="dow">${x}</div>`).join('')}${s}</div>`;
+}
+function sportPage(){
+ let tab=sportTab;
+ let content=tab==='muscu'?muscu():tab==='sport'?sportsView():runView();
+ return `${back()}${datebar()}<div class="card"><h1>Sport</h1><div class="tabs">
+ <button class="tab ${tab==='muscu'?'active':''}" onclick="sportTab='muscu';render()">🏋️ Musculation</button>
+ <button class="tab ${tab==='sport'?'active':''}" onclick="sportTab='sport';render()">🏅 Sport</button>
+ <button class="tab ${tab==='run'?'active':''}" onclick="sportTab='run';render()">🏃 Course</button></div></div>${content}`;
+}
+function muscu(){
+ const fav=EX.slice(0,5);
+ const customs=db.customExercises||[];
+ return `<div class="card"><div class="sectionHead"><h2>5 principaux</h2><span class="muted">accès rapide</span></div><div class="quick">${fav.map(e=>`<button onclick="document.getElementById('searchEx').value='${esc(e[0])}';filterEx('${esc(e[0])}')">✓ ${esc(e[0])}</button>`).join('')}</div></div>
+ <div class="card"><h2>Bibliothèque · ${allExercises().length} exercices</h2><input id="searchEx" placeholder="Rechercher un exercice…" oninput="filterEx(this.value)"><div id="exlist">${fav.map(exCard).join('')}</div></div>
+ <div class="card"><h2>＋ Ajouter ton exercice</h2><p class="muted">Tu peux créer un exercice qui n'existe pas dans la liste. Une faute de frappe est considérée comme un nouvel exercice.</p>
+ <div class="field"><label>Nom de l'exercice</label><input id="newExName" placeholder="Ex. curl marteau haltères"></div>
+ <div class="row"><div class="field"><label>Muscles / catégorie</label><input id="newExGroup" placeholder="Biceps"></div><div class="field"><label>Position illustrée</label><select id="newExKind"><option value="curl">Bras</option><option value="push">Pompes</option><option value="squat">Jambes</option><option value="plank">Gainage</option><option value="pull">Traction</option><option value="bench">Banc</option><option value="press">Épaules</option><option value="dead">Soulevé</option><option value="hip">Hanches</option><option value="crunch">Abdos</option><option value="row">Dos</option><option value="calf">Mollets</option></select></div></div>
+ <div class="field"><label>Description</label><input id="newExDesc" placeholder="Position de départ…"></div>
+ <button class="btn" onclick="addCustomExercise()">Ajouter à ma bibliothèque</button>
+ ${customs.length?`<div style="margin-top:12px"><h3>Mes exercices ajoutés</h3>${customs.map((e,i)=>`<div class="list">🏋️ <b>${esc(e[0])}</b><span class="muted"> · ${esc(e[1])}</span><button class="mini" style="float:right" onclick="deleteCustomExercise(${i})">Supprimer</button></div>`).join('')}</div>`:''}
+ </div>`;
+}
+function sportsView(){
+ return `<div class="card"><h2>Ajouter une séance</h2><div class="field"><label>Sport</label><input id="sportName" list="sports" placeholder="Football, tennis…"><datalist id="sports">${SPORTS.map(s=>`<option value="${s[0]}">`).join('')}</datalist></div>
+ <div class="field"><label>Durée</label><input id="sportDur" placeholder="1 h 15"></div><div class="field"><label>Statistiques</label><input id="sportStats" placeholder="Ex. 2 buts, score 3-1"></div>
+ <button class="btn" onclick="addActivity()">Ajouter la séance</button></div>
+ <div class="card"><h2>Suggestions</h2>${SPORTS.map(s=>`<div class="sportItem"><h3>${s[1]} ${esc(s[0])}</h3><div class="muted">${esc(s[2])}</div></div>`).join('')}</div>
+ <div class="card"><h2>Mes séances du ${esc(selectedDateLabel())}</h2>${db.activities.filter(x=>x.date===db.selectedDate).map((x,i)=>`<div class="list">🏅 <b>${esc(x.name)}</b><br><span class="muted">${esc(x.duration||'')} · ${esc(x.stats||'')}</span></div>`).join('')||'<span class="muted">Aucune séance.</span>'}</div>`;
+}
+function runView(){
+ return `<div class="card"><h2>Course & marche</h2><div class="row"><div class="field"><label>Distance (km)</label><input id="rd" type="number" step=".01" oninput="calcP()"></div><div class="field"><label>Temps</label><input id="rt" placeholder="45:00" oninput="calcP()"></div></div>
+ <div class="stat"><b id="pace">—</b><span class="muted">allure / km</span></div><div class="field"><label>Pas</label><input id="rs" type="number"></div>
+ <button class="btn" onclick="saveRun()">Enregistrer</button></div>`;
+}
+function saveRun(){let d=document.getElementById('rd').value,t=document.getElementById('rt').value,s=document.getElementById('rs').value;if(!d)return;db.activities.push({date:db.selectedDate,name:'Course & marche',distance:d,time:t,steps:s});save();render()}
+function calcP(){let d=+document.getElementById('rd').value,t=document.getElementById('rt').value.split(':').map(Number);if(!d||!t.length){document.getElementById('pace').textContent='—';return}let min=t.length===2?t[0]+t[1]/60:t[0]*60+t[1]+t[2]/60,p=min/d;document.getElementById('pace').textContent=Math.floor(p)+':'+String(Math.round((p%1)*60)).padStart(2,'0')}
+
+const views={
+ home:()=>`<div class="card"><h1>Accueil</h1><p class="muted">Tout est accessible verticalement sur téléphone. Utilise les flèches pour changer de journée.</p>${pendingOublis()} </div>
+ <div class="home">${[
+ ['sport','🏋️','Sport','Musculation · sport · course','c-blue'],
+ ['day','📋','Ma journée','Habitudes · oublis · validation','c-green'],
+ ['food','🍽️','Alimentation','Repas et quantités','c-orange'],
+ ['goals','🎯','Objectifs','Suivi de tes objectifs','c-violet'],
+ ['calendar','🗓️','Calendrier','Voir et modifier n’importe quel jour','c-cyan'],
+ ['profile','👤','Données personnelles','Informations modifiables','c-pink'],
+ ['report','📊','Bilan','Statistiques et tendances','c-purple'],
+ ['plan','📅','Planning','Événements et révisions','c-yellow'],
+ ['recap','📝','Récapitulatif','Notes de tes journées','c-red']
+].map(x=>`<button class="homeCard ${x[4]}" onclick="go('${x[0]}')"><span class="homeIcon">${x[1]}</span><span><strong>${x[2]}</strong><small>${x[3]}</small></span></button>`).join('')}</div>`,
+ sport:sportPage,
+ day:()=>dayPage(),
+ food:()=>`${back()}${datebar()}<div class="card"><h1>Alimentation</h1><p>Journal simple des repas et quantités.</p><div class="field"><label>Aliment / repas</label><input id="foodName" placeholder="Ex. pâtes, sandwich…"></div><div class="row"><div class="field"><label>Quantité</label><input id="foodQty" placeholder="Ex. 150 g"></div><div class="field"><label>Moment</label><select id="foodMeal"><option>Petit-déjeuner</option><option>Déjeuner</option><option>Goûter</option><option>Dîner</option><option>Autre</option></select></div></div><button class="btn" onclick="addFood()">Ajouter</button></div><div class="card"><h2>Mes entrées</h2>${db.food.filter(x=>x.date===db.selectedDate).map(x=>`<div class="list">🍽️ <b>${esc(x.name)}</b><br><span class="muted">${esc(x.qty||'')} · ${esc(x.meal||'')}</span></div>`).join('')||'<span class="muted">Aucune entrée pour ce jour.</span>'}</div>`,
+ goals:()=>`${back()}${datebar()}<div class="card"><h1>Objectifs</h1><div class="field"><label>Objectif</label><input id="goalText" placeholder="Ex. faire 3 séances cette semaine"></div><div class="field"><label>Mesure</label><input id="goalMeasure" placeholder="Ex. nombre de séances"></div><div class="field"><label>Période</label><select id="goalPeriod"><option>Cette semaine</option><option>Ce mois</option><option>Cette année</option></select></div><button class="btn" onclick="addGoal()">Ajouter</button></div><div class="card">${db.goals.map((g,i)=>`<div class="list"><b>🎯 ${esc(g.text)}</b><br><span class="muted">${esc(g.measure)} · ${esc(g.period)}</span></div>`).join('')||'<span class="muted">Aucun objectif.</span>'}</div>`,
+ calendar:()=>`${back()}<div class="card"><div class="sectionHead"><button class="icon" onclick="cursor.setMonth(cursor.getMonth()-1);render()">‹</button><h1>${cursor.toLocaleDateString('fr-FR',{month:'long',year:'numeric'})}</h1><button class="icon" onclick="cursor.setMonth(cursor.getMonth()+1);render()">›</button></div>${cal()}<div class="notice">Jour sélectionné : <b>${new Date(db.selectedDate+'T12:00:00').toLocaleDateString('fr-FR')}</b></div><button class="btn" onclick="go('day')">Modifier cette journée</button></div>`,
+ profile:()=>`${back()}${datebar()}<div class="card"><h1>Données personnelles</h1>${[['age','Âge'],['height','Taille'],['weight','Poids'],['note','Note']].map(x=>`<div class="field"><label>${x[1]}</label><input value="${esc(db.profile[x[0]]||'')}" onchange="db.profile['${x[0]}']=this.value;save()"></div>`).join('')}</div>`,
+ report:()=>`${back()}${datebar()}<div class="card"><h1>Bilan</h1><div class="stats"><div class="stat"><b>${db.activities.filter(x=>x.date===db.selectedDate).length}</b><span class="muted">séances ce jour</span></div><div class="stat"><b>${db.workouts.filter(x=>x.date===db.selectedDate&&x.done).length}</b><span class="muted">exercices notés</span></div><div class="stat"><b>${db.food.filter(x=>x.date===db.selectedDate).length}</b><span class="muted">entrées alimentaires</span></div><div class="stat"><b>${db.dayLogs[db.selectedDate]?.validated?'Oui':'Non'}</b><span class="muted">journée validée</span></div></div></div>`,
+ plan:()=>`${back()}${datebar()}<div class="card"><h1>Planning</h1><p>Crée un événement une seule fois et fais-le répéter automatiquement. Tu peux aussi prévoir des périodes de pause (vacances, absence, cours annulé…).</p><div class="field"><label>Nom</label><input id="eventName" placeholder="Ex. cours de tennis / cours de mon frère"></div><div class="row"><div class="field"><label>Date de début</label><input id="eventDate" type="date" value="${db.selectedDate}"></div><div class="field"><label>Heure</label><input id="eventTime" type="time"></div></div><div class="field"><label>Durée en minutes</label><input id="eventDur" type="number" min="1" max="1440" value="60"></div><div class="field"><label>Répétition</label><select id="eventRepeat"><option value="none">Une seule fois</option><option value="daily">Tous les jours</option><option value="weekly">Toutes les semaines (même jour)</option><option value="monthly">Tous les mois (même date)</option></select></div><div class="field"><label>Fin de la répétition (facultatif)</label><input id="eventEnd" type="date"></div><div class="card" style="margin:8px 0;background:#f7fbff"><b>⏸️ Première période de pause (facultatif)</b><p class="muted">Exemple : vacances du 17 décembre au 3 janvier. L'événement ne sera pas affiché pendant cette période.</p><div class="row"><div class="field"><label>Début</label><input id="pauseStart" type="date"></div><div class="field"><label>Fin</label><input id="pauseEnd" type="date"></div></div></div><button class="btn" onclick="addEvent()">＋ Ajouter l'événement</button></div><div class="card"><h2>Événements du ${esc(selectedDateLabel())}</h2>${eventsForDate(db.selectedDate).map(e=>`<div class="list">📅 <b>${esc(e.name)}</b><br><span class="muted">${esc(e.time||'')} · ${esc(e.dur||'')} min · ${e.repeat==='daily'?'Tous les jours':e.repeat==='weekly'?'Chaque semaine':e.repeat==='monthly'?'Chaque mois':'Une fois'}</span>${e.pauses?.length?`<div class="muted" style="margin-top:5px">⏸️ ${e.pauses.map(p=>esc(p.start)+' → '+esc(p.end)).join(' · ')}</div>`:''}<div class="actions" style="margin-top:8px"><button class="mini" onclick="addEventPause(${e.id})">＋ Ajouter une pause</button><button class="mini" onclick="removeEvent(${e.id})">Supprimer</button></div></div>`).join('')||'<span class="muted">Aucun événement pour ce jour.</span>'}</div>`,
+ recap:()=>`${back()}${datebar()}<div class="card"><h1>Récapitulatif</h1><p>Le récapitulatif reprend automatiquement ce que tu as coché et enregistré. Tu peux ensuite ajouter ou modifier tes propres notes.</p>
+ <button class="btn light" style="width:100%;margin-bottom:10px" onclick="document.getElementById('recapText').value=autoRecap()">↻ Générer le récapitulatif de la journée</button>
+ <textarea id="recapText" placeholder="Ton récapitulatif…">${esc(db.recaps[db.selectedDate]||'')}</textarea>
+ <button class="btn" style="margin-top:10px" onclick="db.recaps[db.selectedDate]=document.getElementById('recapText').value;save();render()">Enregistrer</button></div>
+ <div class="card"><h2>Ce qui a été enregistré</h2><p class="muted">Tu peux utiliser le bouton ci-dessus pour reconstruire le récapitulatif après avoir modifié ta journée.</p></div>`
+};
+
+function autoRecap(){
+ const d=dayData(db.selectedDate);
+ const checks=Object.entries(d.checks||{}).filter(([,v])=>v===true).map(([k])=>k);
+ const no=Object.entries(d.checks||{}).filter(([,v])=>v===false).map(([k])=>k);
+ const ws=db.workouts.filter(x=>x.date===db.selectedDate&&x.done);
+ const acts=db.activities.filter(x=>x.date===db.selectedDate);
+ const foods=db.food.filter(x=>x.date===db.selectedDate);
+ const evs=eventsForDate(db.selectedDate);
+ const lines=[];
+ lines.push('Journée du '+new Date(db.selectedDate+'T12:00:00').toLocaleDateString('fr-FR')+'.');
+ if(checks.length) lines.push('Habitudes faites : '+checks.join(', ')+'.');
+ if(no.length) lines.push('Habitudes non faites : '+no.join(', ')+'.');
+ if(ws.length) lines.push('Musculation : '+ws.map(x=>x.name+' ('+(x.sets||0)+' séries, '+(x.reps||0)+' reps, '+(x.weight??0)+' kg)').join(', ')+'.');
+ if(acts.length) lines.push('Sports : '+acts.map(x=>x.name+(x.duration?' · '+x.duration:'')+(x.stats?' · '+x.stats:'')).join(', ')+'.');
+ if(foods.length) lines.push('Alimentation enregistrée : '+foods.map(x=>x.name+(x.qty?' · '+x.qty:'')).join(', ')+'.');
+ if(evs.length) lines.push('Planning : '+evs.map(x=>x.name).join(', ')+'.');
+ if(d.water) lines.push('Eau : '+d.water+' verre(s).');
+ if(d.steps) lines.push('Pas : '+d.steps+'.');
+ if(d.sleepStart&&d.sleepEnd) lines.push('Sommeil : '+sleepLen(d.sleepStart,d.sleepEnd)+'.');
+ if(!checks.length&&!ws.length&&!acts.length&&!foods.length&&!evs.length) lines.push('Aucune donnée enregistrée pour cette journée.');
+ return lines.join('\n');
+}
+function pendingOublis(){
+ const prev=new Date(db.selectedDate+'T12:00:00');prev.setDate(prev.getDate()-1);const iso=prev.toISOString().slice(0,10);
+ const arr=db.oublis.filter(o=>o.date===iso&&!o.done);
+ return arr.length?`<div class="notice red"><b>⚠️ Oublis de la veille</b>${arr.map(o=>`<div class="list"><b>${esc(o.text)}</b><div class="actions"><button class="mini" onclick="toggleOubli(${o.id})">✓ Traité</button><button class="mini" onclick="deleteOubli(${o.id})">Supprimer</button></div></div>`).join('')}</div>`:`<div class="notice">✓ Aucun oubli non traité pour la veille.</div>`;
+}
+function dayPage(){
+ const d=dayData(db.selectedDate);
+ return `${back()}${datebar()}<div class="card"><h1>Ma journée</h1><p>20 habitudes principales. Tu peux les organiser comme tu veux.</p>
+ ${db.activeChecks.map(n=>{let v=d.checks[n];return `<div class="check"><span>☑️ ${esc(n)}</span><button class="mini yes ${v===true?'on':''}" onclick="setCheck('${esc(n)}',true)">Oui</button><button class="mini no ${v===false?'on':''}" onclick="setCheck('${esc(n)}',false)">Non</button></div>`}).join('')}
+ <div class="row"><div class="field"><label>Verres d'eau</label><input type="number" min="0" value="${esc(d.water)}" onchange="setDay('water',this.value)"></div><div class="field"><label>Pas</label><input type="number" min="0" value="${esc(d.steps)}" onchange="setDay('steps',this.value)"></div></div>
+ <div class="row"><div class="field"><label>Coucher</label><input type="time" value="${esc(d.sleepStart)}" onchange="setDay('sleepStart',this.value)"></div><div class="field"><label>Réveil</label><input type="time" value="${esc(d.sleepEnd)}" onchange="setDay('sleepEnd',this.value)"></div></div>
+ <div class="stat"><b>${sleepLen(d.sleepStart,d.sleepEnd)}</b><span class="muted">durée de sommeil estimée</span></div>
+ <button class="btn" style="width:100%;margin-top:10px" onclick="validate()">✓ Valider ma journée</button>${d.validated?'<div class="notice">Journée validée. Tu peux encore la modifier.</div>':''}
+ <button class="btn light" style="width:100%;margin-top:8px" onclick="manageChecks()">⚙️ Organiser / ajouter des habitudes</button></div>
+ <div class="card"><h2>Oublis</h2><p>Ajoute ici un oubli de la veille ou d’un autre jour, par exemple « porter ma montre ».</p>
+ <div class="field"><input id="oubliText" placeholder="Ex. J'ai oublié de porter ma montre"></div><button class="btn" onclick="addOubli()">Ajouter l'oubli pour cette date</button>
+ <div style="margin-top:10px">${db.oublis.filter(o=>o.date===db.selectedDate).map(o=>`<div class="list">${o.done?'✅':'⚠️'} <b>${esc(o.text)}</b><div class="actions"><button class="mini" onclick="toggleOubli(${o.id})">${o.done?'Rouvrir':'Marquer traité'}</button><button class="mini" onclick="deleteOubli(${o.id})">Supprimer</button></div></div>`).join('')||'<span class="muted">Aucun oubli pour cette date.</span>'}</div>
+ </div>`;
+}
+function render(){document.getElementById('app').innerHTML=views[page]?views[page]():views.home()}
 render();
-</script></body></html>
+</script>
+</body>
+</html>
