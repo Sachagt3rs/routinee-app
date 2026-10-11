@@ -71,6 +71,11 @@ textarea{min-height:130px}
 .mini{padding:8px 9px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:800}
 .yes.on{background:#dff9e9;color:#167747}.no.on{background:#ffe7e7;color:#b52f2f}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{background:#fff;border:1px solid var(--line);border-radius:17px;padding:13px}.stat b{display:block;font-size:25px}
+.photoGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:9px;margin-top:12px}
+.photoItem{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:15px;background:#fff}
+.photoItem img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
+.photoItem .photoName{overflow:hidden;padding:6px 8px;font-size:12px;text-overflow:ellipsis;white-space:nowrap}
+.photoItem .photoDelete{position:absolute;top:6px;right:6px;padding:6px 9px;border:0;border-radius:10px;background:#fff;color:#b52f2f;font-weight:850}
 .calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:10px}
 .dow{text-align:center;font-size:12px;font-weight:900;color:var(--muted);padding:4px}
 .day{min-height:44px;border:1px solid var(--line);border-radius:11px;background:#fff;font-weight:800;position:relative}
@@ -141,6 +146,48 @@ function changeDate(delta){
 function datebar(){return `<div class="datebar"><button class="icon" onclick="changeDate(-1)">‹</button><div class="datecenter"><b>${esc(selectedDateLabel())}</b><span>Journée sélectionnée</span></div><button class="icon" onclick="changeDate(1)">›</button></div>`}
 function dayData(d){return db.dayLogs[d]||{checks:{},water:'',steps:'',sleepStart:'',sleepEnd:'',validated:false}}
 function setDay(k,v){let d=dayData(db.selectedDate);d[k]=v;db.dayLogs[db.selectedDate]=d;save()}
+function photoToDataUrl(file){
+ return new Promise((resolve,reject)=>{
+  const url=URL.createObjectURL(file),image=new Image();
+  image.onload=()=>{
+   URL.revokeObjectURL(url);
+   try{
+    const scale=Math.min(1,1024/Math.max(image.naturalWidth,image.naturalHeight));
+    const canvas=document.createElement('canvas');
+    canvas.width=Math.max(1,Math.round(image.naturalWidth*scale));
+    canvas.height=Math.max(1,Math.round(image.naturalHeight*scale));
+    canvas.getContext('2d').drawImage(image,0,0,canvas.width,canvas.height);
+    resolve(canvas.toDataURL('image/jpeg',.75));
+   }catch(error){reject(error)}
+  };
+  image.onerror=()=>{URL.revokeObjectURL(url);reject(new Error('Image illisible'))};
+  image.src=url;
+ });
+}
+async function addDayPhotos(files){
+ const selected=Array.from(files||[]),added=[],errors=[];
+ for(const file of selected){
+  if(!file.type.startsWith('image/')){errors.push(file.name+' : format non pris en charge');continue}
+  try{added.push({name:file.name,src:await photoToDataUrl(file)})}
+  catch{errors.push(file.name+' : impossible de lire cette image')}
+ }
+ if(added.length){
+  const d=dayData(db.selectedDate),previous=d.photos;
+  d.photos=(previous||[]).concat(added);db.dayLogs[db.selectedDate]=d;
+  try{save()}
+  catch{
+   if(previous===undefined)delete d.photos;else d.photos=previous;
+   errors.push('Stockage insuffisant : réduis le nombre de photos ajoutées en une fois.');
+  }
+ }
+ if(errors.length)alert('Certaines photos n’ont pas pu être ajoutées :\n'+errors.join('\n'));
+ render();
+}
+function deleteDayPhoto(index){
+ const d=dayData(db.selectedDate);
+ if(!Array.isArray(d.photos))return;
+ d.photos.splice(index,1);save();render();
+}
 function setCheck(n,v){let d=dayData(db.selectedDate);d.checks[n]=v;db.dayLogs[db.selectedDate]=d;save();render()}
 function validate(){setDay('validated',true);render()}
 function sleepLen(a,b){if(!a||!b)return '—';let [h,m]=a.split(':').map(Number),[H,M]=b.split(':').map(Number),x=h*60+m,y=H*60+M;if(y<=x)y+=1440;let z=y-x;return Math.floor(z/60)+' h '+String(z%60).padStart(2,'0')}
@@ -354,6 +401,11 @@ function dayPage(){
  <div class="stat"><b>${sleepLen(d.sleepStart,d.sleepEnd)}</b><span class="muted">durée de sommeil estimée</span></div>
  <button class="btn" style="width:100%;margin-top:10px" onclick="validate()">✓ Valider ma journée</button>${d.validated?'<div class="notice">Journée validée. Tu peux encore la modifier.</div>':''}
  <button class="btn light" style="width:100%;margin-top:8px" onclick="manageChecks()">⚙️ Organiser / ajouter des habitudes</button></div>
+ <div class="card"><h2>Photos de la journée</h2><p class="muted">Ajoute des souvenirs à cette date. Les photos sont enregistrées sur cet appareil.</p>
+ <input id="dayPhotos" type="file" accept="image/*" multiple hidden onchange="addDayPhotos(this.files);this.value=''">
+ <button class="btn" onclick="document.getElementById('dayPhotos').click()">＋ Ajouter des photos</button>
+ ${d.photos?.length?`<div class="photoGrid">${d.photos.map((photo,i)=>`<div class="photoItem"><img src="${esc(photo.src)}" alt="${esc(photo.name||'Photo de la journée')}"><div class="photoName">${esc(photo.name||'Photo')}</div><button class="photoDelete" aria-label="Supprimer ${esc(photo.name||'la photo')}" onclick="deleteDayPhoto(${i})">Supprimer</button></div>`).join('')}</div>`:'<p class="muted">Aucune photo pour cette journée.</p>'}
+ </div>
  <div class="card"><h2>Oublis</h2><p>Ajoute ici un oubli de la veille ou d’un autre jour, par exemple « porter ma montre ».</p>
  <div class="field"><input id="oubliText" placeholder="Ex. J'ai oublié de porter ma montre"></div><button class="btn" onclick="addOubli()">Ajouter l'oubli pour cette date</button>
  <div style="margin-top:10px">${db.oublis.filter(o=>o.date===db.selectedDate).map(o=>`<div class="list">${o.done?'✅':'⚠️'} <b>${esc(o.text)}</b><div class="actions"><button class="mini" onclick="toggleOubli(${o.id})">${o.done?'Rouvrir':'Marquer traité'}</button><button class="mini" onclick="deleteOubli(${o.id})">Supprimer</button></div></div>`).join('')||'<span class="muted">Aucun oubli pour cette date.</span>'}</div>
