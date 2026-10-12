@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="theme-color" content="#f7fbff">
-<title>Routine</title>
+<title>Routinee</title>
 <style>
 :root{
   --blue:#168cff;--cyan:#21c8ee;--violet:#7b61ff;--green:#25b77a;--orange:#ff9f43;
@@ -16,7 +16,7 @@ html,body{margin:0;min-height:100%;overflow-x:hidden;font-family:system-ui,-appl
 body{
  background:
  linear-gradient(rgba(255,255,255,.82),rgba(247,251,255,.91)),
- url('arrière-plans.png') center/cover fixed no-repeat;
+ url('background.svg') center/cover fixed no-repeat;
 }
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
@@ -71,11 +71,6 @@ textarea{min-height:130px}
 .mini{padding:8px 9px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:800}
 .yes.on{background:#dff9e9;color:#167747}.no.on{background:#ffe7e7;color:#b52f2f}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{background:#fff;border:1px solid var(--line);border-radius:17px;padding:13px}.stat b{display:block;font-size:25px}
-.photoGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:9px;margin-top:12px}
-.photoItem{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:15px;background:#fff}
-.photoItem img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
-.photoItem .photoName{overflow:hidden;padding:6px 8px;font-size:12px;text-overflow:ellipsis;white-space:nowrap}
-.photoItem .photoDelete{position:absolute;top:6px;right:6px;padding:6px 9px;border:0;border-radius:10px;background:#fff;color:#b52f2f;font-weight:850}
 .calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:10px}
 .dow{text-align:center;font-size:12px;font-weight:900;color:var(--muted);padding:4px}
 .day{min-height:44px;border:1px solid var(--line);border-radius:11px;background:#fff;font-weight:800;position:relative}
@@ -88,28 +83,79 @@ textarea{min-height:130px}
  .tabs{display:grid;grid-template-columns:1fr 1fr 1fr}.tab{font-size:13px}
 }
 
-body[data-theme="dark"]{--ink:#eaf2ff;--muted:#b4c5da;--line:#34465d;--card:rgba(24,34,52,.96);--shadow:0 10px 28px rgba(0,0,0,.32);background:linear-gradient(rgba(9,15,27,.89),rgba(9,15,27,.94)),url('arrière-plans.png') center/cover fixed no-repeat;color-scheme:dark}
-body[data-theme="dark"] .homeCard,body[data-theme="dark"] .icon,body[data-theme="dark"] .back,body[data-theme="dark"] .btn.light,body[data-theme="dark"] .datebar,body[data-theme="dark"] .tab,body[data-theme="dark"] .exercise,body[data-theme="dark"] .sportItem,body[data-theme="dark"] .list,body[data-theme="dark"] .check,body[data-theme="dark"] .stat,body[data-theme="dark"] .photoItem,body[data-theme="dark"] .day,body[data-theme="dark"] .mini,body[data-theme="dark"] input,body[data-theme="dark"] select,body[data-theme="dark"] textarea{background:#1b2a3d;color:var(--ink);border-color:var(--line)}
-body[data-theme="dark"] .card{border-color:#35445b}
-body[data-theme="dark"] .quick button{background:#203650;color:var(--ink);border-color:#3a5676}
-body[data-theme="dark"] .tab.active,body[data-theme="dark"] .day.sel{background:#173f63;color:#a9d9ff;border-color:#4b9ed9}
-body[data-theme="dark"] .notice{background:#423c24;border-color:#78653a;color:#fff2ca}
-body[data-theme="dark"] .notice.red{background:#492c35;border-color:#95505c;color:#ffe2e2}
-body[data-theme="dark"] .yes.on{background:#1b5b42;color:#c7ffe0}
-body[data-theme="dark"] .no.on{background:#69323a;color:#ffe2e2}
-body[data-theme="dark"] .stick{background:#1a3c57;border-color:#356481}
-body[data-theme="dark"] .homeIcon{filter:brightness(.82)}
-body[data-theme="dark"] .c-blue .homeIcon,body[data-theme="dark"] .c-green .homeIcon,body[data-theme="dark"] .c-orange .homeIcon,body[data-theme="dark"] .c-violet .homeIcon,body[data-theme="dark"] .c-pink .homeIcon,body[data-theme="dark"] .c-cyan .homeIcon,body[data-theme="dark"] .c-yellow .homeIcon,body[data-theme="dark"] .c-purple .homeIcon,body[data-theme="dark"] .c-red .homeIcon{background:#293c55;border-color:#4a6280}
-body[data-theme="dark"] .photoItem .photoDelete{background:#293c55;color:#ffb5b5}
+/* Routine V7 preview */
+body{padding-bottom:95px}body[data-theme="dark"]{--ink:#edf4ff;--muted:#b5c5da;--line:#35475d;--card:rgba(24,34,52,.96);--shadow:0 10px 28px #0005;background:linear-gradient(#0b1524ed,#0b1524f5),url('background.svg') center/cover fixed no-repeat;color-scheme:dark}
+body[data-theme="dark"] .homeCard,body[data-theme="dark"] .icon,body[data-theme="dark"] .back,body[data-theme="dark"] .btn.light,body[data-theme="dark"] .datebar,body[data-theme="dark"] .tab,body[data-theme="dark"] .exercise,body[data-theme="dark"] .sportItem,body[data-theme="dark"] .list,body[data-theme="dark"] .check,body[data-theme="dark"] .stat,body[data-theme="dark"] .mini,body[data-theme="dark"] input,body[data-theme="dark"] select,body[data-theme="dark"] textarea{background:#1b2a3d;color:var(--ink);border-color:var(--line)}
+body[data-theme="dark"] .card{border-color:#34465d}body[data-theme="dark"] .quick button{background:#203650;color:var(--ink)}body[data-theme="dark"] .notice{background:#423c24;color:#fff0c6}body[data-theme="dark"] .notice.red{background:#492c35;color:#ffe2e2}
+body[data-theme="dark"] .homeIcon{background:#273d55;border-color:#486580}body[data-theme="dark"] .tab.active{background:#173f63;color:#b9e2ff}
+.v7hero{padding:22px;border-radius:25px;background:linear-gradient(120deg,var(--accent,#168cff),#6e68e9);color:white;box-shadow:var(--shadow);margin:12px 0}.v7hero h1{color:white}.v7hero p{color:#f4f7ff;margin:8px 0}.v7grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.v7tile{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:13px}.v7tile strong{display:block;font-size:24px}.v7tile span{color:var(--muted);font-size:13px}.v7bar{height:11px;background:#cbd9e6;border-radius:12px;overflow:hidden;margin:10px 0}.v7bar>i{display:block;height:100%;background:var(--accent,#168cff);border-radius:12px}.v7bottom{position:fixed;bottom:0;left:0;right:0;padding:12px max(12px,calc((100vw - 760px)/2));background:var(--card);border-top:1px solid var(--line);backdrop-filter:blur(18px);z-index:40;display:flex;gap:8px;box-shadow:0 -8px 30px #0002}.v7bottom input{flex:1;min-width:0}.v7bottom button{flex:0 0 auto}.v7results{position:fixed;bottom:76px;left:max(12px,calc((100vw - 760px)/2));right:max(12px,calc((100vw - 760px)/2));max-height:50vh;overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 35px #0004;z-index:41;padding:8px}.v7results button{display:block;width:100%;padding:12px;text-align:left;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink)}.v7resultHidden{display:none}.v7pill{display:inline-block;padding:7px 10px;border-radius:20px;background:var(--card);border:1px solid var(--line);margin:3px}.v7study{border-left:4px solid var(--accent,#168cff)}.v7muted{color:var(--muted)}
+
+/* V8 : modules additionnels, compatibles avec la V7 */
+body[data-custom-bg="yes"]{background-image:linear-gradient(rgba(255,255,255,.77),rgba(247,251,255,.86)),var(--user-bg)!important;background-position:center!important;background-size:cover!important;background-attachment:fixed!important}
+body[data-theme="dark"][data-custom-bg="yes"]{background-image:linear-gradient(rgba(7,13,25,.86),rgba(7,13,25,.93)),var(--user-bg)!important}
+.v8action{display:flex;gap:8px;flex-wrap:wrap}.v8action button{flex:1;min-width:110px}
+.v8badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(130deg,#e8d5ff,#d9f2ff);color:#25365c;border-radius:18px;padding:12px;margin:5px;font-weight:850;box-shadow:0 5px 18px #0001;animation:v8float 3s ease-in-out infinite}
+.v8badge.lock{filter:grayscale(1);opacity:.55}.v8trophy{font-size:56px;display:inline-block;animation:v8float 3s ease-in-out infinite}
+@keyframes v8float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes v8pop{0%{transform:scale(.85);opacity:.5}70%{transform:scale(1.06)}100%{transform:scale(1);opacity:1}}
+.v8reward{animation:v8pop .5s ease-out}.v8photos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.v8photos img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px}
+.v8fab{border-radius:14px!important;padding:10px 13px!important;font-size:21px!important}.v8timer{font-size:52px;font-weight:950;text-align:center;margin:24px 0;font-variant-numeric:tabular-nums}
+.v8week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.v8week button{padding:9px 2px;border-radius:11px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:12px;min-width:0}
+.v8reorder{width:100%;margin-top:16px;padding:15px;border:2px dashed var(--line);border-radius:18px;background:var(--card);color:var(--ink);font-weight:850}
+.v8toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:90;background:#223b58;color:white;padding:13px 20px;border-radius:20px;box-shadow:0 12px 30px #0004}
+
+/* V8.1 : accueil simplifié, navigation et mouvements discrets */
+.v81welcome{padding:22px 19px;border-radius:25px;background:linear-gradient(130deg,var(--accent,#168cff),#7467d9);color:#fff;box-shadow:var(--shadow);margin:10px 0 14px}
+.v81welcome h1{font-size:29px;color:white;margin:7px 0}.v81welcome p,.v81welcome small{color:#f0f5ff;margin:0}
+.v81summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}.v81summary button{min-width:0;text-align:left;padding:12px 9px;background:var(--card);border:1px solid var(--line);border-radius:16px;color:var(--ink)}.v81summary b{font-size:23px;display:block}.v81summary span{font-size:12px;color:var(--muted)}
+.v81shortcuts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0}.v81shortcuts button{padding:16px 11px;border:1px solid var(--line);border-radius:18px;background:var(--card);color:var(--ink);text-align:left;font-weight:850;font-size:15px;min-width:0}.v81shortcuts span{font-size:23px;display:block;margin-bottom:5px}
+.v81section{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:18px 2px 8px}.v81section h2{font-size:19px;margin:0}.v81section button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:9px 12px;border-radius:13px;font-weight:800}
+.v81compact .homeCard{min-height:72px;padding:10px 13px;border-radius:17px;margin:0}.v81compact{gap:7px}.v81compact .homeIcon{width:44px;height:44px;font-size:24px;border-radius:13px}.v81compact .homeCard strong{font-size:16px}.v81compact .homeCard small{font-size:12px}
+.v81hidden{display:none}.v81footer{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0}.v81footer button{flex:1;padding:13px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:15px;font-weight:800}
+.v7bottom{padding-bottom:max(12px,env(safe-area-inset-bottom))}.v7bottom input{border-radius:17px}
+@media(prefers-reduced-motion:no-preference){.homeCard,.v81shortcuts button,.v81summary button,.v81footer button,.btn,.mini,.tab{transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease}.homeCard:active,.v81shortcuts button:active,.v81summary button:active,.btn:active{transform:scale(.975)}#app{animation:v81enter .22s ease-out}@keyframes v81enter{from{opacity:.45;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}}
+@media(max-width:370px){.v81summary span{font-size:11px}.v81shortcuts button{font-size:13px}}
+
+/* V8.2 : interface futuriste légère, lumineuse et accessible */
+:root{--glow:rgba(49,162,255,.26)}
+body{background-attachment:fixed}
+.shell{position:relative}
+.top{border-radius:0 0 22px 22px;backdrop-filter:blur(20px)}
+.v81welcome{position:relative;overflow:hidden;background:linear-gradient(122deg,#102d5c 0%,var(--accent,#168cff) 55%,#765aff 100%);border:1px solid #ffffff55;box-shadow:0 14px 35px var(--glow)}
+.v81welcome:after{content:'';position:absolute;width:170px;height:170px;right:-55px;top:-85px;border-radius:50%;border:25px solid #ffffff22;pointer-events:none}
+.v81welcome:before{content:'✦';position:absolute;right:28px;bottom:18px;font-size:46px;color:#ffffff2e;pointer-events:none}
+.v81shortcuts button,.v81summary button{position:relative;overflow:hidden;box-shadow:0 5px 20px #15376a10}
+.v81shortcuts button:focus-visible,.v81summary button:focus-visible,.v82float:focus-visible{outline:3px solid var(--accent,#168cff);outline-offset:3px}
+.v81shortcuts button span{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:15px;background:linear-gradient(135deg,#e4f4ff,#e9e4ff);margin-bottom:10px}
+.v82float{border:1px solid #ffffff88!important;background:linear-gradient(140deg,var(--accent,#168cff),#735aff)!important;color:white!important;box-shadow:0 7px 25px var(--glow),inset 0 1px 0 #ffffff80!important;cursor:pointer}
+.v82download{width:43px;height:43px;display:inline-grid;place-items:center;font-size:23px;line-height:1}
+.v82download svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.v82fab{width:53px;height:53px;border-radius:18px!important;font-size:30px!important;display:grid;place-items:center}
+.v7bottom{background:color-mix(in srgb,var(--card) 88%,transparent);border-radius:20px 20px 0 0;padding-top:9px;padding-bottom:max(10px,env(safe-area-inset-bottom));box-shadow:0 -6px 28px #12335a1e}
+.v7bottom input{background:var(--card);border-radius:18px;min-height:50px}
+.v82tag{display:inline-flex;align-items:center;gap:5px;padding:7px 11px;border-radius:100px;background:#ffffff22;border:1px solid #ffffff44;font-size:12px;font-weight:700}
+.v82sheetWrap{position:fixed;inset:0;z-index:100;background:#08142e88;display:flex;align-items:flex-end;justify-content:center;backdrop-filter:blur(6px)}
+.v82sheet{width:min(100%,650px);max-height:90dvh;overflow:auto;padding:20px 20px max(24px,env(safe-area-inset-bottom));border-radius:28px 28px 0 0;background:var(--card);color:var(--ink);box-shadow:0 -20px 70px #0005;animation:v82rise .24s ease-out}
+.v82sheetHead{display:flex;align-items:center;justify-content:space-between;gap:12px}.v82sheetHead h2{margin:4px 0 16px}
+.v82choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:0 0 15px}.v82choices button{padding:13px 8px;border-radius:14px;border:1px solid var(--line);background:transparent;color:var(--ink);font-weight:800}.v82choices button[aria-pressed=true]{background:var(--accent,#168cff);color:white;border-color:transparent}
+.v82sheet label{display:block;font-weight:750;margin:12px 0 6px}.v82sheet input,.v82sheet select{width:100%;box-sizing:border-box}
+.v82save{width:100%;margin-top:17px;min-height:48px}
+.v82widgetOff{display:none!important}.v82settingsChoice{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.v82settingsChoice input{width:22px;height:22px;accent-color:var(--accent,#168cff)}
+.v82tiny{font-size:12px;color:var(--muted)}
+@keyframes v82rise{from{transform:translateY(50px);opacity:.5}to{transform:translateY(0);opacity:1}}
+@media(prefers-reduced-motion:no-preference){.v82float{transition:transform .2s ease,filter .2s ease,box-shadow .2s ease}.v82float:active{transform:scale(.92)}.v81shortcuts button:hover{transform:translateY(-3px);box-shadow:0 10px 26px var(--glow)}.v81welcome:before{animation:v82spark 5s ease-in-out infinite}@keyframes v82spark{50%{transform:rotate(20deg) scale(1.14);opacity:.7}}}
+@media(prefers-reduced-motion:reduce){.v8badge,.v8trophy,.v8reward,#app,.v82sheet{animation:none!important;transition:none!important}}
 </style>
+<link rel="manifest" href="manifest.webmanifest">
 </head>
 <body>
 <main class="shell">
 <header class="top">
  <div><div class="brand">Routine ✦</div><div class="sub">Sport · organisation · études</div></div>
- <div style="display:flex;gap:7px;align-items:center"><button id="themeToggle" class="icon" onclick="toggleTheme()" aria-label="Changer le thème" title="Changer le thème">🌙</button><button class="icon" onclick="exportData()" aria-label="Exporter les données">⇩</button></div>
+ <div style="display:flex;gap:7px"><button class="icon" id="v7theme" onclick="v7ToggleTheme()" aria-label="Changer de thème">🌙</button><button class="icon v82download" onclick="v8Export()" aria-label="Télécharger mes données" title="Télécharger mes données"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 17v3h16v-3"/></svg></button></div>
 </header>
-<div id="app"></div>
+<div id="app"></div><div id="v82sheetRoot"></div><div id="v8toast" class="v8toast" style="display:none"></div>
+<div class="v7bottom"><input id="v7search" type="search" placeholder="🔎 Rechercher dans Routinee…" aria-label="Recherche universelle" oninput="v7Search(this.value)" onfocus="v7Search(this.value)"><button class="btn v8fab v82fab v82float" onclick="v82Quick()" title="Ajouter rapidement" aria-label="Ajouter rapidement">＋</button></div><div id="v7results" class="v7results v7resultHidden"></div>
 <div class="footer">Les données restent dans le navigateur de cet appareil.</div>
 </main>
 
@@ -160,48 +206,6 @@ function changeDate(delta){
 function datebar(){return `<div class="datebar"><button class="icon" onclick="changeDate(-1)">‹</button><div class="datecenter"><b>${esc(selectedDateLabel())}</b><span>Journée sélectionnée</span></div><button class="icon" onclick="changeDate(1)">›</button></div>`}
 function dayData(d){return db.dayLogs[d]||{checks:{},water:'',steps:'',sleepStart:'',sleepEnd:'',validated:false}}
 function setDay(k,v){let d=dayData(db.selectedDate);d[k]=v;db.dayLogs[db.selectedDate]=d;save()}
-function photoToDataUrl(file){
- return new Promise((resolve,reject)=>{
-  const url=URL.createObjectURL(file),image=new Image();
-  image.onload=()=>{
-   URL.revokeObjectURL(url);
-   try{
-    const scale=Math.min(1,1024/Math.max(image.naturalWidth,image.naturalHeight));
-    const canvas=document.createElement('canvas');
-    canvas.width=Math.max(1,Math.round(image.naturalWidth*scale));
-    canvas.height=Math.max(1,Math.round(image.naturalHeight*scale));
-    canvas.getContext('2d').drawImage(image,0,0,canvas.width,canvas.height);
-    resolve(canvas.toDataURL('image/jpeg',.75));
-   }catch(error){reject(error)}
-  };
-  image.onerror=()=>{URL.revokeObjectURL(url);reject(new Error('Image illisible'))};
-  image.src=url;
- });
-}
-async function addDayPhotos(files){
- const selected=Array.from(files||[]),added=[],errors=[];
- for(const file of selected){
-  if(!file.type.startsWith('image/')){errors.push(file.name+' : format non pris en charge');continue}
-  try{added.push({name:file.name,src:await photoToDataUrl(file)})}
-  catch{errors.push(file.name+' : impossible de lire cette image')}
- }
- if(added.length){
-  const d=dayData(db.selectedDate),previous=d.photos;
-  d.photos=(previous||[]).concat(added);db.dayLogs[db.selectedDate]=d;
-  try{save()}
-  catch{
-   if(previous===undefined)delete d.photos;else d.photos=previous;
-   errors.push('Stockage insuffisant : réduis le nombre de photos ajoutées en une fois.');
-  }
- }
- if(errors.length)alert('Certaines photos n’ont pas pu être ajoutées :\n'+errors.join('\n'));
- render();
-}
-function deleteDayPhoto(index){
- const d=dayData(db.selectedDate);
- if(!Array.isArray(d.photos))return;
- d.photos.splice(index,1);save();render();
-}
 function setCheck(n,v){let d=dayData(db.selectedDate);d.checks[n]=v;db.dayLogs[db.selectedDate]=d;save();render()}
 function validate(){setDay('validated',true);render()}
 function sleepLen(a,b){if(!a||!b)return '—';let [h,m]=a.split(':').map(Number),[H,M]=b.split(':').map(Number),x=h*60+m,y=H*60+M;if(y<=x)y+=1440;let z=y-x;return Math.floor(z/60)+' h '+String(z%60).padStart(2,'0')}
@@ -415,21 +419,163 @@ function dayPage(){
  <div class="stat"><b>${sleepLen(d.sleepStart,d.sleepEnd)}</b><span class="muted">durée de sommeil estimée</span></div>
  <button class="btn" style="width:100%;margin-top:10px" onclick="validate()">✓ Valider ma journée</button>${d.validated?'<div class="notice">Journée validée. Tu peux encore la modifier.</div>':''}
  <button class="btn light" style="width:100%;margin-top:8px" onclick="manageChecks()">⚙️ Organiser / ajouter des habitudes</button></div>
- <div class="card"><h2>Photos de la journée</h2><p class="muted">Ajoute des souvenirs à cette date. Les photos sont enregistrées sur cet appareil.</p>
- <input id="dayPhotos" type="file" accept="image/*" multiple hidden onchange="addDayPhotos(this.files);this.value=''">
- <button class="btn" onclick="document.getElementById('dayPhotos').click()">＋ Ajouter des photos</button>
- ${d.photos?.length?`<div class="photoGrid">${d.photos.map((photo,i)=>`<div class="photoItem"><img src="${esc(photo.src)}" alt="${esc(photo.name||'Photo de la journée')}"><div class="photoName">${esc(photo.name||'Photo')}</div><button class="photoDelete" aria-label="Supprimer ${esc(photo.name||'la photo')}" onclick="deleteDayPhoto(${i})">Supprimer</button></div>`).join('')}</div>`:'<p class="muted">Aucune photo pour cette journée.</p>'}
- </div>
  <div class="card"><h2>Oublis</h2><p>Ajoute ici un oubli de la veille ou d’un autre jour, par exemple « porter ma montre ».</p>
  <div class="field"><input id="oubliText" placeholder="Ex. J'ai oublié de porter ma montre"></div><button class="btn" onclick="addOubli()">Ajouter l'oubli pour cette date</button>
  <div style="margin-top:10px">${db.oublis.filter(o=>o.date===db.selectedDate).map(o=>`<div class="list">${o.done?'✅':'⚠️'} <b>${esc(o.text)}</b><div class="actions"><button class="mini" onclick="toggleOubli(${o.id})">${o.done?'Rouvrir':'Marquer traité'}</button><button class="mini" onclick="deleteOubli(${o.id})">Supprimer</button></div></div>`).join('')||'<span class="muted">Aucun oubli pour cette date.</span>'}</div>
  </div>`;
 }
 function render(){document.getElementById('app').innerHTML=views[page]?views[page]():views.home()}
-function applyTheme(theme){const dark=theme==='dark';document.body.dataset.theme=dark?'dark':'light';document.querySelector('meta[name="theme-color"]').setAttribute('content',dark?'#0b1423':'#f7fbff');const b=document.getElementById('themeToggle');if(b){b.textContent=dark?'☀️':'🌙';b.title=dark?'Passer en mode clair':'Passer en mode sombre';b.setAttribute('aria-label',b.title)}}
-function toggleTheme(){const next=document.body.dataset.theme==='dark'?'light':'dark';localStorage.setItem('routineTheme',next);applyTheme(next)}
-applyTheme(localStorage.getItem('routineTheme')==='dark'?'dark':'light');
+
+// V7 : données supplémentaires conservées séparément pour préserver routineDB.
+const v7key='routineV7';let v7=JSON.parse(localStorage.getItem(v7key)||'null')||{study:[],accent:'#168cff',style:'normal',theme:'light',order:[]};
+const v7save=()=>localStorage.setItem(v7key,JSON.stringify(v7));
+function v7Apply(){document.documentElement.style.setProperty('--accent',v7.accent||'#168cff');document.body.dataset.theme=v7.theme||'light';const b=document.getElementById('v7theme');if(b)b.textContent=v7.theme==='dark'?'☀️':'🌙';document.querySelector('meta[name="theme-color"]').content=v7.theme==='dark'?'#0b1524':'#f7fbff';}
+function v7ToggleTheme(){v7.theme=v7.theme==='dark'?'light':'dark';v7save();v7Apply()}
+const v7categories=[['sport','🏋️','Sport','Musculation · sport · course','c-blue'],['day','📋','Ma journée','Habitudes · oublis · validation','c-green'],['food','🍽️','Alimentation','Repas et quantités','c-orange'],['goals','🎯','Objectifs','Suivi de tes objectifs','c-violet'],['calendar','🗓️','Calendrier','Voir et modifier les jours','c-cyan'],['profile','👤','Données personnelles','Informations modifiables','c-pink'],['report','📊','Bilan','Graphiques et tendances','c-purple'],['plan','📅','Planning','Événements et révisions','c-yellow'],['recap','📝','Récapitulatif','Notes de tes journées','c-red'],['study','📚','Études','Devoirs · révisions · matières','c-blue'],['rewards','🏆','Récompenses','XP et badges facultatifs','c-violet'],['settings','🎨','Personnaliser','Couleurs · thème · accueil','c-pink']];
+function v7stats(){let day=dayData(db.selectedDate),done=Object.values(day.checks||{}).filter(v=>v===true).length,acts=db.activities.filter(x=>x.date===db.selectedDate).length,work=db.workouts.filter(x=>x.date===db.selectedDate&&x.done).length,upcoming=eventsForDate(db.selectedDate),pending=db.oublis.filter(x=>!x.done).length;return {done,acts,work,upcoming,pending}}
+function v7xp(){let done=Object.values(db.dayLogs).reduce((n,d)=>n+Object.values(d.checks||{}).filter(v=>v===true).length,0),sports=db.activities.length+db.workouts.filter(w=>w.done).length,study=v7.study.filter(x=>x.done).length;return done*10+sports*20+study*20}
+views.home=()=>{let x=v7stats(),hour=new Date().getHours(),hello=hour<12?'Bonjour ☀️':hour<18?'Bon après-midi 🌤️':'Bonsoir 🌙';let order=v7.order.length?v7.order:v7categories.map(x=>x[0]);let cats=[...v7categories].sort((a,b)=>order.indexOf(a[0])-order.indexOf(b[0]));return `<div class="v7hero"><small>ROUTINEE · VERSION 8 — APERÇU</small><h1>${hello}</h1><p>${new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})} · Une petite action à la fois ✨</p><button class="btn light" onclick="go('day')">Commencer ma journée →</button></div><div class="v7grid"><div class="v7tile"><strong>✅ ${x.done}</strong><span>habitudes cochées</span></div><div class="v7tile"><strong>🏃 ${x.acts+x.work}</strong><span>activités enregistrées</span></div><div class="v7tile"><strong>📅 ${x.upcoming.length}</strong><span>événements aujourd'hui</span></div><div class="v7tile"><strong>🔔 ${x.pending}</strong><span>oublis à traiter</span></div></div><div class="card"><h2>À venir aujourd'hui</h2>${x.upcoming.slice(0,3).map(e=>`<div class="list">📌 ${esc(e.name)}</div>`).join('')||'<p class="muted">Rien de prévu pour le moment.</p>'}<button class="btn light" onclick="go('plan')">Voir le planning</button></div>${pendingOublis()}<h2 style="margin:18px 4px 10px">Mes espaces</h2><div class="home">${cats.map(x=>`<button class="homeCard ${x[4]}" onclick="go('${x[0]}')"><span class="homeIcon">${x[1]}</span><span><strong>${x[2]}</strong><small>${x[3]}</small></span></button>`).join('')}</div>`};
+function v7periodDays(n){let dates=[];for(let i=n-1;i>=0;i--){let d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()-i);dates.push(d.toISOString().slice(0,10))}return dates}
+let v7period=7;
+views.report=()=>{let dates=v7periodDays(v7period),set=new Set(dates),act=db.activities.filter(a=>set.has(a.date)),mus=db.workouts.filter(a=>set.has(a.date)&&a.done),hab=dates.reduce((n,d)=>n+Object.values(dayData(d).checks||{}).filter(x=>x===true).length,0),study=v7.study.filter(a=>a.done&&set.has(a.completedDate||a.date)),max=Math.max(1,...dates.map(d=>Object.values(dayData(d).checks||{}).filter(x=>x===true).length));let names=[...act.map(x=>x.name),...mus.map(x=>x.name)];let most=names.length?Object.entries(names.reduce((o,n)=>(o[n]=(o[n]||0)+1,o),{})).sort((a,b)=>b[1]-a[1])[0][0]:'—';return `${back()}<div class="card"><h1>📊 Mon bilan</h1><div class="row">${[[7,'7 jours'],[30,'30 jours'],[365,'1 an']].map(([n,t])=>`<button class="mini" style="${v7period===n?'border-color:var(--blue)':''}" onclick="v7period=${n};render()">${t}</button>`).join('')}</div><div class="v7grid" style="margin-top:15px"><div class="v7tile"><strong>${act.length+mus.length}</strong><span>activités sportives</span></div><div class="v7tile"><strong>${hab}</strong><span>habitudes cochées</span></div><div class="v7tile"><strong>${study.length}</strong><span>révisions terminées</span></div><div class="v7tile"><strong>${esc(most)}</strong><span>activité la plus fréquente</span></div></div><h2 style="margin-top:18px">Habitudes au fil du temps</h2>${dates.length>31?'<p class="muted">Graphique des 30 derniers jours de la période</p>':''}<div style="display:flex;align-items:end;gap:3px;height:140px;overflow:hidden">${dates.slice(-30).map(d=>{let n=Object.values(dayData(d).checks||{}).filter(x=>x===true).length;return `<div title="${d} : ${n}" style="flex:1;height:${Math.max(3,n/max*100)}%;background:var(--accent);border-radius:4px 4px 0 0;min-width:3px"></div>`}).join('')}</div><p class="muted">Les graphiques se basent sur tes données réellement enregistrées.</p></div>`};
+views.study=()=>`${back()}<div class="card"><h1>📚 Mon espace Études</h1><p class="muted">Devoirs et révisions, à ton rythme.</p><div class="field"><label>Matière</label><select id="v7subject">${['Maths','Français','Histoire-géographie','SVT','Technologie','Anglais','Espagnol','Autre'].map(s=>`<option>${s}</option>`).join('')}</select></div><div class="field"><label>Devoir ou révision</label><input id="v7task" placeholder="Ex. réviser les fonctions"></div><div class="field"><label>Date prévue</label><input id="v7due" type="date" value="${todayISO()}"></div><button class="btn" onclick="v7AddStudy()">＋ Ajouter</button></div><div class="card"><h2>Mes tâches</h2>${v7.study.slice().sort((a,b)=>a.date.localeCompare(b.date)).map(t=>`<div class="list v7study"><b>${esc(t.subject)}</b> · ${esc(t.name)}<br><span class="muted">${esc(t.date)}</span><div class="actions"><button class="mini" onclick="v7DoneStudy(${t.id})">${t.done?'↩ À faire':'✓ Terminé'}</button><button class="mini" onclick="v7DeleteStudy(${t.id})">Supprimer</button></div></div>`).join('')||'<p class="muted">Ajoute ton premier devoir ou ta première révision.</p>'}</div>`;
+function v7AddStudy(){let name=document.getElementById('v7task').value.trim();if(!name)return;v7.study.push({id:Date.now(),subject:document.getElementById('v7subject').value,name,date:document.getElementById('v7due').value,done:false});v7save();render()}
+function v7DoneStudy(id){let t=v7.study.find(t=>t.id===id);if(t){t.done=!t.done;t.completedDate=t.done?todayISO():'';v7save();render()}}
+function v7DeleteStudy(id){v7.study=v7.study.filter(t=>t.id!==id);v7save();render()}
+views.rewards=()=>{let xp=v7xp(),level=Math.floor(xp/200)+1,progress=xp%200;return `${back()}<div class="v7hero"><h1>🏆 Niveau ${level}</h1><p>${xp} XP au total · ${200-progress} XP avant le niveau suivant</p><div class="v7bar"><i style="width:${progress/2}% ;background:#fff"></i></div><p>Les récompenses sont facultatives. Les jours de repos ne retirent aucun point.</p></div><div class="card"><h2>Mes badges</h2>${[[10,'🌱 Premiers pas'],[100,'✨ Belle lancée'],[500,'🌟 Explorateur'],[1500,'🏅 Organisé'],[4000,'🏆 Régulier']].map(([n,t])=>`<div class="list">${xp>=n?'✅':'🔒'} ${t} <span class="muted">· ${n} XP</span></div>`).join('')}<p class="muted">+10 XP par habitude cochée, +20 par activité sportive ou révision terminée. Aucun classement entre utilisateurs.</p></div>`};
+views.settings=()=>`${back()}<div class="card"><h1>🎨 Personnaliser</h1><h2>Couleur principale</h2><div class="row">${[['#168cff','Bleu'],['#25b77a','Vert'],['#7b61ff','Violet'],['#ff9f43','Orange'],['#ef5978','Rose']].map(([color,name])=>`<button class="mini" style="border:2px solid ${color};color:var(--ink)" onclick="v7.accent='${color}';v7save();v7Apply();render()">● ${name}</button>`).join('')}</div><h2 style="margin-top:18px">Apparence</h2><button class="btn light" onclick="v7ToggleTheme()">🌗 Basculer clair / sombre</button><h2 style="margin-top:18px">Ordre des catégories</h2><p class="muted">Utilise les flèches pour déplacer une catégorie sur l'accueil.</p>${(v7.order.length?v7.order:v7categories.map(x=>x[0])).map((id,i)=>{let c=v7categories.find(x=>x[0]===id);return c?`<div class="list">${c[1]} ${c[2]} <span style="float:right"><button class="mini" onclick="v7Move('${id}',-1)">↑</button> <button class="mini" onclick="v7Move('${id}',1)">↓</button></span></div>`:''}).join('')}</div>`;
+function v7Move(id,d){if(!v7.order.length)v7.order=v7categories.map(x=>x[0]);let i=v7.order.indexOf(id),j=i+d;if(j<0||j>=v7.order.length)return;[v7.order[i],v7.order[j]]=[v7.order[j],v7.order[i]];v7save();render()}
+function v7Search(q){let e=document.getElementById('v7results');q=q.trim().toLowerCase();if(!q){e.classList.add('v7resultHidden');return}let results=v7categories.filter(x=>x[2].toLowerCase().includes(q)||x[3].toLowerCase().includes(q)).map(x=>({label:x[1]+' '+x[2],page:x[0]}));if(typeof EX!=='undefined')results.push(...EX.filter(x=>x[0].toLowerCase().includes(q)).slice(0,5).map(x=>({label:'🏋️ '+x[0],page:'sport'})));results.push(...v7.study.filter(x=>x.name.toLowerCase().includes(q)||x.subject.toLowerCase().includes(q)).slice(0,5).map(x=>({label:'📚 '+x.name,page:'study'})));e.innerHTML=results.length?results.slice(0,12).map(x=>`<button onclick="go('${x.page}');v7CloseSearch()">${esc(x.label)} →</button>`).join(''):'<p class="muted" style="padding:10px">Aucun résultat.</p>';e.classList.remove('v7resultHidden')}
+function v7CloseSearch(){document.getElementById('v7results').classList.add('v7resultHidden');document.getElementById('v7search').value=''}
+const v7OriginalRender=render;render=function(){v7OriginalRender();v7Apply()};v7Apply();
+
+
+// V8 : modules indépendants. Toutes les données V6/V7 sont conservées.
+const v8key='routineV8';let v8={};try{v8=JSON.parse(localStorage.getItem(v8key)||'{}')||{}}catch(e){}
+v8.photos??={};v8.records??=[];v8.notes??=[];v8.events??=[];v8.timerSeconds??=1500;
+const v8save=()=>{try{localStorage.setItem(v8key,JSON.stringify(v8));return true}catch(e){alert('Stockage plein : exporte tes données ou utilise des photos plus petites.');return false}};
+const v8esc=s=>esc(String(s??''));
+const v8date=d=>new Date(d+'T12:00:00').toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'short'});
+function v8toast(t){const e=document.getElementById('v8toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2300)}
+function v8Quick(){let what=prompt('Ajout rapide : 1 = note, 2 = devoir, 3 = événement, 4 = activité sportive, 5 = oubli');if(!what)return;let name=prompt('Que veux-tu ajouter ?');if(!name?.trim())return;name=name.trim();if(what==='1'){v8.notes.push({id:Date.now(),date:db.selectedDate,text:name});v8save();go('journal')}
+else if(what==='2'){v7.study.push({id:Date.now(),name,subject:'Autre',date:db.selectedDate,done:false});v7save();go('study')}
+else if(what==='3'){v8.events.push({id:Date.now(),name,date:db.selectedDate});v8save();go('week')}
+else if(what==='4'){db.activities.push({date:db.selectedDate,name,duration:'',stats:''});save();go('sport')}
+else if(what==='5'){db.oublis.push({id:Date.now(),date:db.selectedDate,text:name,done:false});save();go('day')}
+else v8toast('Choisis un numéro entre 1 et 5')}
+function v8PhotoInput(files){const file=files?.[0];if(!file)return;if(!file.type.startsWith('image/'))return alert('Choisis une image.');const reader=new FileReader();reader.onload=()=>{const im=new Image();im.onload=()=>{const cv=document.createElement('canvas');let k=Math.min(1,1100/Math.max(im.width,im.height));cv.width=Math.max(1,Math.round(im.width*k));cv.height=Math.max(1,Math.round(im.height*k));cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);let url=cv.toDataURL('image/jpeg',.72);if(!v8.photos[db.selectedDate])v8.photos[db.selectedDate]=[];v8.photos[db.selectedDate].push({id:Date.now(),src:url});if(v8save())render();};im.src=reader.result};reader.readAsDataURL(file)}
+function v8RemovePhoto(id){v8.photos[db.selectedDate]=(v8.photos[db.selectedDate]||[]).filter(x=>x.id!==id);v8save();render()}
+views.journal=()=>`${back()}${datebar()}<div class="card"><h1>📸 Journal photo</h1><p class="muted">Photos et souvenirs de la journée. Les images restent dans ce navigateur.</p><input type="file" accept="image/*" onchange="v8PhotoInput(this.files)"><div class="v8photos" style="margin-top:14px">${(v8.photos[db.selectedDate]||[]).map(p=>`<div><img src="${p.src}" alt="Souvenir"><button class="mini" onclick="v8RemovePhoto(${p.id})">Supprimer</button></div>`).join('')}</div></div><div class="card"><h2>Notes du jour</h2><textarea id="v8note" placeholder="Un souvenir, une idée, un événement…"></textarea><button class="btn" onclick="v8AddNote()">Ajouter une note</button>${v8.notes.filter(x=>x.date===db.selectedDate).map(n=>`<div class="list">${v8esc(n.text)} <button class="mini" onclick="v8.notes=v8.notes.filter(x=>x.id!==${n.id});v8save();render()">×</button></div>`).join('')}</div>`;
+function v8AddNote(){let s=document.getElementById('v8note').value.trim();if(!s)return;v8.notes.push({id:Date.now(),date:db.selectedDate,text:s});v8save();render()}
+let v8Clock=null,v8Remaining=1500;
+function v8FormatTime(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+function v8UpdateTimer(){let e=document.getElementById('v8time');if(e)e.textContent=v8FormatTime(v8Remaining)}
+function v8TimerStart(){if(v8Clock)return;v8Clock=setInterval(()=>{v8Remaining=Math.max(0,v8Remaining-1);v8UpdateTimer();if(!v8Remaining){v8TimerPause();v8toast('⏰ Minuteur terminé !')}},1000)}
+function v8TimerPause(){clearInterval(v8Clock);v8Clock=null}
+function v8TimerReset(){v8TimerPause();v8Remaining=Number(document.getElementById('v8minutes')?.value||25)*60;v8UpdateTimer()}
+views.focus=()=>`${back()}<div class="card"><h1>🧠 Mode concentration</h1><p class="muted">Choisis un temps confortable pour une tâche, avec des pauses quand tu en as besoin.</p><div class="field"><label>Ma tâche</label><input id="v8focusTask" placeholder="Ex. réviser les fonctions"></div><div class="field"><label>Durée (minutes)</label><input type="number" min="1" max="180" id="v8minutes" value="25" onchange="v8TimerReset()"></div><div id="v8time" class="v8timer">${v8FormatTime(v8Remaining)}</div><div class="v8action"><button class="btn" onclick="v8TimerStart()">▶ Démarrer</button><button class="btn light" onclick="v8TimerPause()">Ⅱ Pause</button><button class="btn light" onclick="v8TimerReset()">↻ Recommencer</button></div></div>`;
+let v8WeekOffset=0;
+function v8WeekDates(){let d=new Date();d.setHours(12,0,0,0);let weekday=(d.getDay()+6)%7;d.setDate(d.getDate()-weekday+v8WeekOffset*7);return Array.from({length:7},(_,i)=>{let x=new Date(d);x.setDate(d.getDate()+i);return [x.toISOString().slice(0,10),x.toLocaleDateString('fr-FR',{weekday:'short'})]})}
+views.week=()=>`${back()}<div class="card"><h1>🗓️ Ma semaine</h1><div class="v8action"><button class="mini" onclick="v8WeekOffset--;render()">← Précédente</button><button class="mini" onclick="v8WeekOffset=0;render()">Cette semaine</button><button class="mini" onclick="v8WeekOffset++;render()">Suivante →</button></div><div class="v8week" style="margin-top:14px">${v8WeekDates().map(([d,label])=>`<button onclick="db.selectedDate='${d}';save();go('day')">${label}<br><b>${d.slice(-2)}</b></button>`).join('')}</div>${v8WeekDates().map(([d])=>{let items=[...eventsForDate(d).map(x=>x.name),...v8.events.filter(x=>x.date===d).map(x=>x.name),...v7.study.filter(x=>x.date===d&&!x.done).map(x=>'📚 '+x.name)];return `<div class="list"><b>${v8date(d)}</b>${items.map(x=>`<div>• ${v8esc(x)}</div>`).join('')||'<div class="muted">Aucun événement</div>'}</div>`}).join('')}</div>`;
+views.records=()=>`${back()}<div class="card"><h1>🏅 Mes records personnels</h1><p class="muted">Garde une trace des performances qui comptent pour toi.</p><div class="field"><label>Activité</label><input id="v8recordSport" placeholder="Ex. course, football, pompes"></div><div class="field"><label>Record</label><input id="v8recordValue" placeholder="Ex. 5 km, 3 buts, 12 répétitions"></div><button class="btn" onclick="v8AddRecord()">＋ Ajouter mon record</button>${v8.records.map(r=>`<div class="list">🏅 <b>${v8esc(r.sport)}</b> · ${v8esc(r.value)} <span class="muted">${v8esc(r.date)}</span><button class="mini" onclick="v8.records=v8.records.filter(x=>x.id!==${r.id});v8save();render()">×</button></div>`).join('')}</div>`;
+function v8AddRecord(){let sport=document.getElementById('v8recordSport').value.trim(),value=document.getElementById('v8recordValue').value.trim();if(!sport||!value)return;v8.records.push({id:Date.now(),sport,value,date:todayISO()});v8save();render()}
+const v8Suggestions=[['📚','Relire une leçon','study'],['🎨','Faire une activité créative','day'],['🚶','Faire une promenade','sport'],['📖','Lire quelques pages','day'],['🗓️','Organiser sa semaine','week'],['📝','Écrire dans son journal','journal']];
+views.ideas=()=>`${back()}<div class="card"><h1>🎲 Une idée d'activité ?</h1><p>Pas besoin de tout faire. Choisis ce qui te fait envie !</p><div id="v8suggestion" class="v7hero"><h2>Découvre une suggestion</h2></div><button class="btn" onclick="v8Suggest()">🎲 Autre idée</button></div>`;
+function v8Suggest(){let x=v8Suggestions[Math.floor(Math.random()*v8Suggestions.length)];document.getElementById('v8suggestion').innerHTML=`<h2>${x[0]} ${x[1]}</h2><button class="btn light" onclick="go('${x[2]}')">Ouvrir →</button>`}
+function v8Export(){let bundle={routineDB:db,routineV7:v7,routineV8:{...v8,background:undefined},routineTheme:localStorage.getItem('routineTheme')};let blob=new Blob([JSON.stringify(bundle,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='routinee-sauvegarde-'+todayISO()+'.json';a.click();URL.revokeObjectURL(a.href)}
+function v8Import(input){let f=input.files?.[0];if(!f)return;let rd=new FileReader();rd.onload=()=>{try{let x=JSON.parse(rd.result);if(!x.routineDB||!x.routineV7)return alert('Fichier de sauvegarde Routinee invalide.');if(!confirm('Remplacer les données actuelles par cette sauvegarde ? Exporte tes données actuelles avant.'))return;localStorage.setItem('routineDB',JSON.stringify(x.routineDB));localStorage.setItem('routineV7',JSON.stringify(x.routineV7));localStorage.setItem('routineV8',JSON.stringify(x.routineV8||{}));if(x.routineTheme)localStorage.setItem('routineTheme',x.routineTheme);location.reload()}catch(e){alert('Impossible de lire ce fichier.')}};rd.readAsText(f)}
+views.backup=()=>`${back()}<div class="card"><h1>💾 Sauvegarde et restauration</h1><p>Exporte tes données avant de changer d'appareil ou de navigateur.</p><button class="btn" onclick="v8Export()">⇩ Télécharger une sauvegarde</button><div class="field"><label>Restaurer un fichier JSON</label><input type="file" accept="application/json,.json" onchange="v8Import(this)"></div><p class="muted">Les données restent locales. Une sauvegarde ne synchronise pas automatiquement tes appareils.</p></div>`;
+function v8Background(input){let file=input.files?.[0];if(!file)return;let rd=new FileReader();rd.onload=()=>{let img=new Image();img.onload=()=>{let cv=document.createElement('canvas'),k=Math.min(1,1500/Math.max(img.width,img.height));cv.width=Math.round(img.width*k);cv.height=Math.round(img.height*k);cv.getContext('2d').drawImage(img,0,0,cv.width,cv.height);let data=cv.toDataURL('image/jpeg',.7);try{localStorage.setItem('routineBackground',data);v8ApplyBackground();v8toast('Fond enregistré !')}catch(e){alert('Image trop volumineuse pour le navigateur.')}};img.src=rd.result};rd.readAsDataURL(file)}
+function v8ApplyBackground(){let s=localStorage.getItem('routineBackground');document.body.dataset.customBg=s?'yes':'no';if(s)document.body.style.setProperty('--user-bg',`url("${s}")`);else document.body.style.removeProperty('--user-bg')}
+function v8RemoveBackground(){localStorage.removeItem('routineBackground');v8ApplyBackground();v8toast('Fond par défaut rétabli')}
+const v8OriginalDay=views.day;
+views.day=()=>v8OriginalDay()+`<div class="card"><h2>📷 Photos de la journée</h2><p class="muted">Retrouve tes photos dans le journal photo.</p><input type="file" accept="image/*" onchange="v8PhotoInput(this.files)"><div class="v8photos" style="margin-top:12px">${(v8.photos[db.selectedDate]||[]).map(p=>`<div><img src="${p.src}" alt="Photo de la journée"><button class="mini" onclick="v8RemovePhoto(${p.id})">Supprimer</button></div>`).join('')}</div><button class="btn light" style="margin-top:12px" onclick="go('journal')">Ouvrir mon journal photo</button></div>`;
+const v8OriginalSettings=views.settings;
+views.settings=()=>v8OriginalSettings().replace('</div>','</div>')+`<div class="card"><h2>🖼️ Mon fond d’écran</h2><p class="muted">Importe une photo depuis ton téléphone ou ton ordinateur. Elle restera sur cet appareil.</p><input type="file" accept="image/*" onchange="v8Background(this)"><button class="btn light" style="margin-top:10px" onclick="v8RemoveBackground()">Réinitialiser le fond</button></div><div class="card"><h2>🧩 Réorganiser</h2><p class="muted">Utilise les flèches dans la section ci-dessus pour changer l'ordre des catégories de l'accueil.</p></div>`;
+const v8OriginalRewards=views.rewards;
+views.rewards=()=>{let xp=v7xp(),level=Math.floor(xp/200)+1;return v8OriginalRewards().replace('<div class="v7hero">',`<div class="v7hero v8reward" style="text-align:center"><div class="v8trophy">🏆</div>`).replace('<h2>Mes badges</h2>','<h2>✨ Ma collection de badges</h2><div style="text-align:center">'+[[10,'🌱 Premiers pas'],[100,'✨ Belle lancée'],[500,'🌟 Explorateur'],[1500,'🏅 Organisé'],[4000,'🏆 Régulier']].map(([n,t])=>`<span class="v8badge ${xp<n?'lock':''}">${t}</span>`).join('')+'</div>')};
+const v8ExtraCategories=[['journal','📸','Journal photo','Photos et souvenirs','c-pink'],['week','🗓️','Ma semaine','Vue hebdomadaire','c-cyan'],['focus','⏱️','Concentration','Minuteur de travail','c-violet'],['records','🏅','Mes records','Performances personnelles','c-orange'],['ideas','🎲','Idées d’activités','Suggestions au hasard','c-green'],['backup','💾','Sauvegardes','Exporter et restaurer','c-blue']];
+v7categories.splice(v7categories.findIndex(x=>x[0]==='settings'),0,...v8ExtraCategories);
+const v8HomeOriginal=views.home;
+views.home=()=>v8HomeOriginal()+`<button class="v8reorder" onclick="go('settings')">⚙️ Réorganiser et personnaliser mon accueil</button>`;
+// Recherche universelle : sports, exercices personnalisés, habitudes, devoirs, planning et pages.
+function v7Search(query){let panel=document.getElementById('v7results');if(!panel)return;let q=query.trim().toLocaleLowerCase('fr');if(!q){panel.classList.add('v7resultHidden');return}let normalize=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();let term=normalize(q),results=[];const add=(label,page,action='')=>{if(normalize(label).includes(term))results.push({label,page,action})};
+ v7categories.forEach(x=>add(x[1]+' '+x[2]+' '+x[3],x[0]));
+ [...SPORTS].forEach(x=>add(x[1]+' '+x[0]+' — Sport','sport',x[0]));
+ (typeof allExercises==='function'?allExercises():EX).forEach(x=>add('🏋️ '+x[0]+' — Musculation','sport',x[0]));
+ [...DEFAULT,...EXTRA,...db.activeChecks].forEach(x=>add('☑️ '+x+' — Habitude','day'));
+ v7.study.forEach(x=>add('📚 '+x.subject+' : '+x.name,'study'));
+ (db.events||[]).forEach(x=>add('📅 '+x.name,'plan'));
+ v8.events.forEach(x=>add('📅 '+x.name,'week'));
+ let seen=new Set();results=results.filter(x=>{let k=x.label;if(seen.has(k))return false;seen.add(k);return true}).slice(0,25);
+ panel.innerHTML=results.length?results.map((x,i)=>`<button onclick="v8OpenSearch(${i})">${v8esc(x.label)} →</button>`).join(''):'<p class="muted" style="padding:10px">Aucun résultat trouvé.</p>';
+ window.v8LastResults=results;panel.classList.remove('v7resultHidden')}
+function v8OpenSearch(i){let r=window.v8LastResults?.[i];if(!r)return;v7CloseSearch();go(r.page);if(r.page==='sport'&&r.action){let search=document.querySelector('input[type="search"]:not(#v7search)');if(search){search.value=r.action;search.dispatchEvent(new Event('input',{bubbles:true}))}}}
+const v8OriginalApply=v7Apply;
+v7Apply=function(){v8OriginalApply();v8ApplyBackground()};
+v8ApplyBackground();
+
+
+// V8.1 : l'accueil affiche les actions utiles avant les catégories secondaires.
+let v81ShowAll=false;
+function v81ToggleAll(){v81ShowAll=!v81ShowAll;render()}
+views.home=()=>{
+ const stats=v7stats();const hour=new Date().getHours();const hello=hour<12?'Bonjour ☀️':hour<18?'Bon après-midi 🌤️':'Bonsoir 🌙';
+ const order=v7.order?.length?v7.order:v7categories.map(c=>c[0]);
+ const cats=[...v7categories].sort((a,b)=>{let ia=order.indexOf(a[0]),ib=order.indexOf(b[0]);return (ia<0?999:ia)-(ib<0?999:ib)});
+ const today=new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
+ const urgent=(v7.study||[]).filter(t=>!t.done&&t.date&&t.date<=todayISO()).length;
+ const all=cats.map(x=>`<button class="homeCard ${x[4]}" onclick="go('${x[0]}')"><span class="homeIcon">${x[1]}</span><span><strong>${x[2]}</strong><small>${x[3]}</small></span></button>`).join('');
+ return `<div class="v81welcome"><small>ROUTINEE · TON ESPACE</small><h1>${hello}</h1><p>${today} · À ton rythme ✨</p></div>
+ <div class="v81summary"><button onclick="go('day')"><b>${stats.done}</b><span>Habitudes faites</span></button><button onclick="go('sport')"><b>${stats.acts+stats.work}</b><span>Activités notées</span></button><button onclick="go('study')"><b>${urgent}</b><span>Devoirs à voir</span></button></div>
+ ${stats.pending?`<div class="notice red">⚠️ ${stats.pending} oubli(s) à vérifier <button class="mini" onclick="go('day')">Voir →</button></div>`:''}
+ <div class="v81section"><h2>⚡ Accès rapides</h2></div>
+ <div class="v81shortcuts"><button onclick="go('day')"><span>✅</span>Ma journée</button><button onclick="go('study')"><span>📚</span>Mes devoirs</button><button onclick="go('sport')"><span>🏃</span>Activités</button><button onclick="go('week')"><span>🗓️</span>Ma semaine</button></div>
+ <div class="v81section"><h2>🧭 Toutes mes rubriques</h2><button onclick="v81ToggleAll()">${v81ShowAll?'Réduire ↑':'Tout voir ↓'}</button></div>
+ <div class="home v81compact ${v81ShowAll?'':'v81hidden'}">${all}</div>
+ <div class="v81footer"><button onclick="go('settings')">⚙️ Réorganiser</button><button onclick="go('backup')">⇩ Télécharger</button></div>`;
+};
+
+// V8.2 : ajout rapide sans boîtes de dialogue du navigateur.
+let v82kind='note';
+const v82kinds=[['note','📝 Note'],['study','📚 Devoir'],['event','🗓️ Événement'],['sport','🏃 Activité'],['forget','🔔 Oubli']];
+function v82Quick(kind='note'){
+ v82kind=kind;const root=document.getElementById('v82sheetRoot');
+ root.innerHTML=`<div class="v82sheetWrap" onclick="if(event.target===this)v82Close()"><section class="v82sheet" role="dialog" aria-modal="true" aria-labelledby="v82title"><div class="v82sheetHead"><h2 id="v82title">✦ Ajout rapide</h2><button class="mini" onclick="v82Close()" aria-label="Fermer">✕</button></div><p class="v82tiny">Une action, quelques secondes, et c'est enregistré.</p><div class="v82choices">${v82kinds.map(([id,label])=>`<button type="button" aria-pressed="${id===kind}" onclick="v82Select('${id}')">${label}</button>`).join('')}</div><form onsubmit="v82Submit(event)"><label for="v82name">Qu'est-ce que tu veux ajouter ?</label><input id="v82name" maxlength="180" required placeholder="Ex. Réviser les maths" autocomplete="off"><div id="v82extra"></div><button class="btn v82float v82save" type="submit">✦ Enregistrer</button></form></section></div>`;
+ v82Select(kind);document.getElementById('v82name').focus();
+}
+function v82Select(kind){v82kind=kind;document.querySelectorAll('.v82choices button').forEach((b,i)=>b.setAttribute('aria-pressed',String(v82kinds[i][0]===kind)));
+ const el=document.getElementById('v82extra');if(!el)return;
+ el.innerHTML=kind==='study'?'<label for="v82subject">Matière</label><input id="v82subject" placeholder="Ex. Maths"><label for="v82date">À faire pour le</label><input id="v82date" type="date">':kind==='event'?'<label for="v82date">Date de l’événement</label><input id="v82date" type="date">':kind==='sport'?'<label for="v82duration">Durée (facultatif, en minutes)</label><input id="v82duration" type="number" min="0" max="1440" placeholder="Ex. 30">':'';
+ const date=document.getElementById('v82date');if(date)date.value=db.selectedDate||todayISO();
+}
+function v82Close(){document.getElementById('v82sheetRoot').innerHTML=''}
+function v82Submit(event){event.preventDefault();const name=document.getElementById('v82name').value.trim();if(!name)return;
+ const date=document.getElementById('v82date')?.value||db.selectedDate||todayISO();let destination='home';
+ if(v82kind==='note'){v8.notes.push({id:Date.now(),date,text:name});v8save();destination='journal'}
+ if(v82kind==='study'){v7.study.push({id:Date.now(),name,subject:document.getElementById('v82subject')?.value.trim()||'Autre',date,done:false});v7save();destination='study'}
+ if(v82kind==='event'){v8.events.push({id:Date.now(),name,date});v8save();destination='week'}
+ if(v82kind==='sport'){db.activities.push({date,name,duration:document.getElementById('v82duration')?.value||'',stats:''});save();destination='sport'}
+ if(v82kind==='forget'){db.oublis.push({id:Date.now(),date,text:name,done:false});save();destination='day'}
+ v82Close();go(destination);v8toast('✓ Ajout enregistré !');
+}
+// Widgets internes de l'accueil : le choix reste sur cet appareil.
+const v82widgets=[['summary','📊 Résumé du jour'],['shortcuts','⚡ Accès rapides'],['categories','🧭 Toutes les rubriques'],['footer','⚙️ Réglages et téléchargement']];
+function v82WidgetEnabled(id){return localStorage.getItem('routineWidget_'+id)!=='off'}
+function v82WidgetToggle(id,on){localStorage.setItem('routineWidget_'+id,on?'on':'off');render()}
+const v82HomeBase=views.home;
+views.home=()=>{let html=v82HomeBase();
+ html=html.replace('<small>ROUTINEE · TON ESPACE</small>','<span class="v82tag">✦ ROUTINEE · TON ESPACE</span>');
+ if(!v82WidgetEnabled('summary'))html=html.replace(/<div class="v81summary">[\s\S]*?<\/div>/,'');
+ if(!v82WidgetEnabled('shortcuts'))html=html.replace(/<div class="v81section"><h2>⚡ Accès rapides<\/h2><\/div>[\s\S]*?<div class="v81section"><h2>🧭/,'<div class="v81section"><h2>🧭');
+ if(!v82WidgetEnabled('categories'))html=html.replace(/<div class="v81section"><h2>🧭 Toutes mes rubriques<\/h2>[\s\S]*?<div class="v81footer">/,'<div class="v81footer">');
+ if(!v82WidgetEnabled('footer'))html=html.replace(/<div class="v81footer">[\s\S]*?<\/div>/,'');
+ return html;
+};
+const v82SettingsBase=views.settings;
+views.settings=()=>v82SettingsBase()+`<div class="card"><h2>🧩 Personnaliser mon accueil</h2><p class="muted">Affiche seulement ce qui t'intéresse. Les autres pages restent accessibles par la recherche en bas.</p>${v82widgets.map(([id,label])=>`<label class="v82settingsChoice"><span>${label}</span><input type="checkbox" ${v82WidgetEnabled(id)?'checked':''} onchange="v82WidgetToggle('${id}',this.checked)" aria-label="Afficher ${label}"></label>`).join('')}<p class="v82tiny">Pour changer l'ordre des rubriques, utilise les flèches plus haut sur cette page.</p></div>`;
+
 render();
 </script>
-</body>
+<script>if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});</script></body>
 </html>
